@@ -24,11 +24,12 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
         {/* First Item: Larger layout (60% width) */}
         <div className="relative md:col-span-3">
           <Link to={`/${isProject(featuredPosts[0]) ? `${featuredPosts[0].frontmatter.year || featuredPosts[0].frontmatter.edition || new Date().getFullYear()}/${featuredPosts[0].slug}` : featuredPosts[0].slug}`} prefetch="viewport">
-            <div className="bg-gray-400 rounded-lg overflow-hidden">
+            <div className="bg-gray-400 overflow-hidden">
               <img 
                 src={featuredPosts[0].frontmatter['cover-lg'] || featuredPosts[0].firstImage || appConfig.defaultImages.projectCard} 
                 alt={featuredPosts[0].title || featuredPosts[0].frontmatter.title || featuredPosts[0].frontmatter.name} 
-                className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" 
+                className="w-full object-cover hover:scale-105 transition-transform duration-300" 
+                style={{ aspectRatio: '3/2' }}
               />
             </div>
             <div className="mt-4 space-y-1 text-center">
@@ -50,11 +51,12 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
           {featuredPosts.slice(1).map((post) => (
             <div key={post.slug} className="grid grid-cols-[160px_1fr] gap-3 2xl:grid-cols-[230px_1fr] 2xl:gap-5 w-full relative">
               <Link to={`/${isProject(post) ? `${post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear()}/${post.slug}` : post.slug}`} prefetch="viewport" className="flex-shrink-0">
-                <div className="bg-gray-400 rounded-lg overflow-hidden">
+                <div className="bg-gray-400 overflow-hidden">
                   <img 
                     src={post.frontmatter['cover-md'] || post.firstImage || appConfig.defaultImages.projectCard} 
                     alt={post.title || post.frontmatter.title || post.frontmatter.name} 
-                    className="w-full h-32 2xl:h-40 object-cover hover:scale-105 transition-transform duration-300" 
+                    className="w-full h-40 md:h-48 lg:h-56 xl:h-64 object-cover hover:scale-105 transition-transform duration-300" 
+                    style={{ aspectRatio: '2/4' }}
                   />
                 </div>
               </Link>

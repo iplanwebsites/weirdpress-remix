@@ -128,20 +128,42 @@ header nav a:hover {
   color: var(--text-primary);
 }
 
-/* Footer */
+/* Footer - Always dark theme with hardcoded colors */
 footer {
   background: linear-gradient(29deg, #1e2023, #2e3946) !important;
-  color: var(--text-secondary) !important;
+  color: #ccc !important;
   font-family: "Roboto Mono", monospace;
 }
 
+footer * {
+  color: #ccc !important;
+}
+
 footer a {
-  color: var(--text-primary) !important;
+  color: #ffffff !important;
 }
 
 footer a:hover {
-  color: var(--accent) !important;
+  color: #fff513 !important;
   text-decoration: underline;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+  color: #ffffff !important;
+}
+
+footer .text-gray-600,
+footer .dark\:text-gray-400 {
+  color: #999 !important;
+}
+
+footer .socialicon {
+  color: #ffffff !important;
+  transition: color 0.2s ease;
+}
+
+footer .socialicon:hover {
+  color: #fff513 !important;
 }
 
 /* Project Cards */

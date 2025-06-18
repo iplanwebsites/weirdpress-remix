@@ -48,19 +48,14 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
     <div className={`space-y-16 ${className}`}>
       {projectsByYear.map(({ year, posts: yearPosts }) => (
         <section key={year} className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              <Link
-                to={`/${year}`}
-                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                {year}
-              </Link>
-            </h2>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              {yearPosts.length} project{yearPosts.length !== 1 ? 's' : ''}
-            </div>
-          </div>
+          <h2 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+            <Link
+              to={`/${year}`}
+              className="text-gray-900 dark:text-white hover:underline"
+            >
+              {year}
+            </Link>
+          </h2>
           
           <BlogList
             posts={yearPosts}

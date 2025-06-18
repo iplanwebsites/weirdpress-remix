@@ -233,12 +233,12 @@ export default function Footer() {
                 <div className="space-y-2">
                   <div>
                     <a 
-                      href={appConfig.brands.weirdPressPhoto}
+                      href={appConfig.brands.raccook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm block"
                     >
-                      Weird Press Photo
+                     Raccook
                     </a>
                   </div>
                 
@@ -266,9 +266,10 @@ export default function Footer() {
 
               {/* Column 3: Copyright */}
               <div>
-                <span className="text-sm">
-                  © {new Date().getFullYear()} {appConfig.company.name}. All rights reserved.
-                </span>
+                <div className="text-sm space-y-1">
+                  <p>© 2025, Weird Press Photo • Supporting and enabling AI photojournalism</p>
+                  <p>This project is (obviously) not related in any ways with the World Press Photo organization</p>
+                </div>
               </div>
             </div>
           </div>

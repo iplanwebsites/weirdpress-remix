@@ -21,7 +21,7 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
 
   if (isSidebar) {
     return (
-      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-lg p-6">
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <img 

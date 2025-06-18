@@ -98,7 +98,7 @@ export default function RecipesIndex() {
   const featuredProjects = posts.slice(0, 6);
 
   return (
-    <main className="bg-gray-100 dark:bg-gray-900">
+    <main className="bg-gray-100 dark:bg-black">
       {/* Hero Section */}
       <div className="bg-blue-600 dark:bg-blue-700">
         <div className="pt-5 px-4 md:px-2 md:max-w-4xl mx-auto text-center">
@@ -133,7 +133,7 @@ export default function RecipesIndex() {
 
       {/* Search Section */}
       <section className="px-4 mx-auto md:max-w-5xl transform -translate-y-1/2">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex items-center gap-3">
+        <div className="bg-white dark:bg-black rounded-lg shadow-lg p-4 flex items-center gap-3">
           <Search className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
           <input
             type="search"

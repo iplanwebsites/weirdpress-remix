@@ -41,7 +41,7 @@ export default function SearchCard({ post, loading = "eager" }: SearchCardProps)
       {/* Category for non-projects */}
       {!isProjectPost && post.frontmatter.category && (
         <div className="mb-2">
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
+          <span className="px-2 py-1 bg-blue-100 dark:bg-black text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
             {post.frontmatter.category}
           </span>
         </div>

@@ -44,7 +44,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-lg">
+    <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-lg">
       <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
         📋 Table of Contents
       </h3>

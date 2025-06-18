@@ -69,7 +69,7 @@ export default function RecipesByTag() {
   ];
 
   return (
-    <main className="bg-gray-100 dark:bg-gray-900">
+    <main className="bg-gray-100 dark:bg-black">
       {/* Hero Section */}
       <div className="bg-blue-600 dark:bg-blue-700">
         <div className="pt-5 px-4 md:px-2 md:max-w-4xl mx-auto text-center">

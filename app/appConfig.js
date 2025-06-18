@@ -142,13 +142,13 @@ export const appConfig = {
     newsletterEnabled: true,
     darkModeEnabled: true,
     socialShareEnabled: true,
-    showEndgame: false,
+    showEndgame: true,
   },
 
   // Company Information
   company: {
     name: "Endgame Media",
-    tagline: "The agentic publishing company",
+    tagline: "An agentic publishing experiment",
     website: "https://endgame.media/",
   },
 
@@ -156,6 +156,7 @@ export const appConfig = {
   brands: {
     weirdPressPhoto: "https://weirdpressphoto.com",
     repoMd: "https://repo.md",
+    raccook: "https://raccook.com",
   },
 
   // External Services

@@ -97,7 +97,7 @@ export default function Index() {
                 href="/2024" 
                 className="inline-block px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors"
               >
-                View 2024 winners  ›
+                2024 in photography  ›
               </a>
             </div>
           </div>
@@ -107,10 +107,20 @@ export default function Index() {
       <div className="py-12 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 abril">
-            Press Photography that Matters
+           Embracing the future of Photography and Journalism
           </h2>
-          <p className="text-lg opacity-80 dark:opacity-80 mono">Documenting pivotal moments through the lens</p>
-        </div>
+          <p className="text-lg opacity-80 dark:opacity-80 mono">
+            
+           Since in 2022, we're dedicated to showcasing the best of AI photojournalism.
+           <br/>
+          We celebrate pure mathematical storytelling that is free from human bias.
+               <br/>
+              We encourage critical reflexion on the role and development of technology.
+                 <br/>
+                  We hope you'll have a great time here exploring these exceptional AI contributions to the world.
+            
+            </p>
+        </div> 
       </div>
 
       {/* Featured Articles Section */} 

@@ -25,6 +25,25 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
+// Get featured posts - prioritize featured=true, then 2024 posts
+function getFeaturedPosts(posts: Post[]): Post[] {
+  const featuredPosts = posts.filter(post => post.frontmatter.featured === true);
+  const posts2024 = posts.filter(post => 
+    (post.frontmatter.year === 2024 || post.frontmatter.year === '2024') && 
+    !post.frontmatter.featured
+  );
+  
+  // If we have enough featured posts, use them
+  if (featuredPosts.length >= 3) {
+    return shuffleArray(featuredPosts).slice(0, 3);
+  }
+  
+  // Otherwise, combine featured + shuffled 2024 posts
+  const shuffled2024 = shuffleArray(posts2024);
+  const combined = [...featuredPosts, ...shuffled2024];
+  return combined.slice(0, 3);
+}
+
 export const meta: MetaFunction = () => {
   return [
     { title: `${appConfig.siteName}` },
@@ -49,6 +68,9 @@ export const loader: LoaderFunction = async () => {
 
 export default function Index() {
   const { posts, nonProjectPosts } = useLoaderData<{ posts: Post[]; nonProjectPosts: Post[] }>();
+  
+  // Get featured posts using the new logic
+  const featuredPosts = getFeaturedPosts(posts);
 
 
   /*
@@ -92,12 +114,12 @@ export default function Index() {
       </div>
 
       {/* Featured Articles Section */} 
-      {posts.length >= 3 && (
+      {featuredPosts.length >= 3 && (
         <div className="py-10">
           <div className="container mx-auto px-4">
             <ThreeFeaturedBlog 
               heading="Featured Projects" 
-              posts={posts}
+              posts={featuredPosts}
             />
           </div>
         </div>

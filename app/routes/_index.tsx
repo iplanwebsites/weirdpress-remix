@@ -61,7 +61,7 @@ export default function Index() {
       {/* Featured Articles Section */} 
       {posts.length >= 3 && (
         <div className="py-10">
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="container mx-auto px-4">
             <ThreeFeaturedBlog 
               heading="Featured Projects" 
               posts={posts}
@@ -73,7 +73,7 @@ export default function Index() {
       {/* Projects by Year Section */}
       {posts.length > 0 && (
         <section className="py-12">
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="container mx-auto px-4">
             <header className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Projects by Year

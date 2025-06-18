@@ -15,9 +15,9 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
 
   return (
     <div className="project-card group cursor-pointer">
-      <Link to={`/${year}/${post.slug}`} prefetch="viewport">
-        {/* Image with frame effect */}
-        <div className="frame overflow-hidden bg-accent">
+      {/* Image with frame effect */}
+      <Link to={`/${year}/${post.slug}`} prefetch="viewport" className="block">
+        <div className="frame overflow-hidden">
           <div className="aspect-[3/2] relative">
             <img
               src={imageUrl}
@@ -27,26 +27,28 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
             />
           </div>
         </div>
-        
-        {/* Title */}
-        <h3 className="text-lg font-semibold mt-3 mb-1 text-white">
+      </Link>
+      
+      {/* Title */}
+      <Link to={`/${year}/${post.slug}`} prefetch="viewport">
+        <h3 className="text-lg font-semibold mt-3 mb-1 text-gray-900 dark:text-white hover:underline">
           {post.frontmatter.title || post.frontmatter.name}
         </h3>
-        
-        {/* Photographer info */}
-        <div className="flex items-center text-sm opacity-50">
-          {photographerPic && (
-            <img
-              src={photographerPic}
-              alt={photographer}
-              className="w-5 h-5 rounded-full object-cover mr-2 border border-black"
-              loading="lazy"
-            />
-          )}
-          <span>{photographer}</span>
-          {year && <span className="ml-2">• {year}</span>}
-        </div>
       </Link>
+      
+      {/* Photographer info */}
+      <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+        {photographerPic && (
+          <img
+            src={photographerPic}
+            alt={photographer}
+            className="w-5 h-5 rounded-full object-cover mr-2 border border-gray-300 dark:border-gray-600"
+            loading="lazy"
+          />
+        )}
+        <span>{photographer}</span>
+        {year && <span className="ml-2">• {year}</span>}
+      </div>
     </div>
   );
 }

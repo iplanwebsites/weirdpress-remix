@@ -3,6 +3,17 @@
 /* CSS Custom Properties */
 :root {
   --accent: #fff513;
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-dark: #f1f3f4;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+}
+
+/* Dark theme colors */
+.dark {
   --bg-primary: #111;
   --bg-secondary: #222;
   --bg-dark: #000;
@@ -46,7 +57,7 @@ h1, h2, h3, h4 {
   font-family: Outfit, Raleway, Roboto, Helvetica, Arial;
   font-weight: 400 !important;
   margin-bottom: 0.5em;
-  color: white;
+  color: var(--text-primary);
 }
 
 .abril {
@@ -89,7 +100,7 @@ a:hover {
 
 /* Navigation Overrides */
 header {
-  background: transparent !important;
+  background: rgba(255, 255, 255, 0.8) !important;
   border: none !important;
   position: sticky;
   top: 0;
@@ -98,8 +109,12 @@ header {
   -webkit-backdrop-filter: blur(10px);
 }
 
+.dark header {
+  background: rgba(17, 17, 17, 0.8) !important;
+}
+
 header a {
-  color: white !important;
+  color: var(--text-primary) !important;
 }
 
 header nav a:hover {
@@ -110,7 +125,7 @@ header nav a:hover {
 .referlogo {
   font-weight: 800;
   font-size: 30px;
-  color: white;
+  color: var(--text-primary);
 }
 
 /* Footer */
@@ -121,7 +136,7 @@ footer {
 }
 
 footer a {
-  color: white !important;
+  color: var(--text-primary) !important;
 }
 
 footer a:hover {
@@ -131,20 +146,30 @@ footer a:hover {
 
 /* Project Cards */
 .project-card {
-  background: var(--accent);
+  background: transparent;
   transition: all 0.2s ease-in-out;
   overflow: hidden;
   border-radius: 0;
 }
 
+.project-card .frame {
+  background: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.project-card:hover .frame {
+  background: var(--accent);
+}
+
 .project-card img {
   opacity: 1;
-  mix-blend-mode: multiply;
-  transition: opacity 0.2s ease-in-out;
+  mix-blend-mode: normal;
+  transition: all 0.2s ease-in-out;
 }
 
 .project-card:hover img {
   opacity: 0.7;
+  mix-blend-mode: multiply;
 }
 
 .project-card .overlay {
@@ -154,7 +179,7 @@ footer a:hover {
 
 /* Tags */
 .tag {
-  background: #323232;
+  background: var(--bg-secondary);
   color: var(--text-secondary);
   padding: 5px 10px;
   border: none;
@@ -166,7 +191,7 @@ footer a:hover {
 
 /* Bio Section */
 .bio {
-  background: #323232;
+  background: var(--bg-secondary);
   padding: 20px;
   margin-top: 20px;
   border-radius: 0;
@@ -231,25 +256,17 @@ footer a:hover {
   color: var(--text-primary);
 }
 
-/* Override Tailwind dark mode for consistent dark theme */
-.dark\:bg-gray-800 {
-  background: var(--bg-primary) !important;
-}
-
-.dark\:text-gray-300 {
-  color: var(--text-primary) !important;
-}
-
+/* Utility overrides for theme consistency */
 .dark\:border-gray-700 {
-  border-color: #323232 !important;
+  border-color: var(--text-muted) !important;
 }
 
 /* Search Bar */
 input[type="search"],
 input[type="text"] {
-  background: #323232;
-  border: 1px solid #444;
-  color: white;
+  background: var(--bg-secondary);
+  border: 1px solid var(--text-muted);
+  color: var(--text-primary);
   font-family: "Roboto Mono", monospace;
 }
 

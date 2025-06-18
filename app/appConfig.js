@@ -31,9 +31,9 @@ export const appConfig = {
 
   // Repo-MD Configuration
   repoMd: {
-    projectId: "6848af1cacdf98346841d302",
+    projectId: "6851d519ac5bcd832fb4c887",
     debug: NODE_ENV !== "production",
-    revCacheExpirySeconds: 5 * 60, // 5 minutes
+    revCacheExpirySeconds: 5, // 5 minutes
     debugRevCaching: NODE_ENV !== "production",
   },
 

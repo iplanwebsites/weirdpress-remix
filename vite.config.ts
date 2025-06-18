@@ -6,6 +6,7 @@ import {
 import tsconfigPaths from "vite-tsconfig-paths";
 import { getLoadContext } from "./load-context";
 import { createViteProxy } from "repo-md";
+import { appConfig } from "./app/appConfig.js";
 
 declare module "@remix-run/cloudflare" {
   interface Future {
@@ -13,7 +14,7 @@ declare module "@remix-run/cloudflare" {
   }
 }
 
-const viteProxy1 = createViteProxy('6851d519ac5bcd832fb4c887', '_repo')
+const viteProxy1 = createViteProxy(appConfig.repoMd.projectId, '_repo')
 //const viteProxy2 = createViteProxy('6848af1cacdf98346841d302', '_repo_docs')
 //const viteProxy3 = createViteProxy('6848af1cacdf98346841d302', '_repo_blog')
 

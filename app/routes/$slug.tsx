@@ -6,6 +6,7 @@ import type { Post } from "~/types/blog";
 import { appConfig } from "~/appConfig";
 import ErrorBoundaryComponent from "~/components/ErrorBoundary";
 import ArticleTemplate from "~/components/ArticleTemplate";
+import BlogList from "~/components/BlogList";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { slug } = params;
@@ -96,12 +97,55 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function BlogPost() {
-  const { post, similarPosts } = useLoaderData<{ post: Post; similarPosts: Post[] }>();
+  const data = useLoaderData<{ 
+    isYearListing?: boolean; 
+    year?: string; 
+    posts?: Post[]; 
+    post?: Post; 
+    similarPosts?: Post[];
+  }>();
+
+  // Handle year listing
+  if (data.isYearListing) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              {data.year} Projects
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Explore all photography projects from {data.year}
+            </p>
+          </div>
+          
+          {data.posts && data.posts.length > 0 ? (
+            <BlogList 
+              posts={data.posts} 
+              cardType="project"
+              className="mb-8"
+            />
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600 dark:text-gray-400">
+                No projects found for {data.year}.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Handle single post
+  if (!data.post) {
+    throw new Response("Post not found", { status: 404 });
+  }
 
   return (
     <ArticleTemplate
-      post={post}
-      similarPosts={similarPosts}
+      post={data.post}
+      similarPosts={data.similarPosts}
       backLink="/recipes"
       backLinkText="← Back to all posts"
       similarPostsTitle="You might also like"

@@ -10,7 +10,7 @@ import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
 
 // Hero background image
-const HERO_IMAGE_URL = "https://2024.weirdpressphoto.org/_repo/medias/14041b0a6ef6eaf2addc7dfcc5617b49219e0d4c496404dedb12e37d323acea1-lg.webp";
+const HERO_IMAGE_URL = "https://2024.weirdpressphoto.org/_repo/medias/14041b0a6ef6eaf2addc7dfcc5617b49219e0d4c496404dedb12e37d323acea1-xl.webp";
 
 // Number of posts that should load eagerly (without lazy loading)
 const POSTS_WITH_NO_LAZY_LOADING = 6;
@@ -50,27 +50,32 @@ export const loader: LoaderFunction = async () => {
 export default function Index() {
   const { posts, nonProjectPosts } = useLoaderData<{ posts: Post[]; nonProjectPosts: Post[] }>();
 
+
+  /*
+ The First Photography <br />Exhibition by Machines
+
+
+  */
   return (
     <div>
       <section 
-        className="relative bg-cover bg-center bg-no-repeat flex items-end"
+        className="relative bg-cover bg-center bg-no-repeat flex items-end h-[40vh] md:h-[80vh]"
         style={{
-          backgroundImage: `url(${HERO_IMAGE_URL})`,
-          height: '80vh'
+          backgroundImage: `url(${HERO_IMAGE_URL})`
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         <div className="relative z-10 container mx-auto px-4 pb-8">
           <div className="text-left text-white max-w-2xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
-              The First Photography <br />Exhibition by Machines
+             The best of AI Photojournalism
             </h1>
             <div className="mt-8">
               <a 
-                href="/2022" 
+                href="/2024" 
                 className="inline-block px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors"
               >
-                View 2022 winners ›
+                View 2024 winners  ›
               </a>
             </div>
           </div>

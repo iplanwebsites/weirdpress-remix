@@ -34,7 +34,7 @@ export default function BlogContent({ html }: BlogContentProps) {
   return (
     <div 
       ref={contentRef}
-      className="prose prose-lg dark:prose-invert max-w-none prose-img:rounded-3xl"
+      className="prose prose-lg dark:prose-invert max-w-none"
       dangerouslySetInnerHTML={{ __html: html }} 
     />
   );

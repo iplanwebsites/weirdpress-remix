@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({ params }) => {
       
       const matchesCategory = post.frontmatter?.category?.toLowerCase().includes(searchTerm);
       const matchesType = post.frontmatter?.type?.toLowerCase().includes(searchTerm);
-      const matchesTitle = post.frontmatter?.title?.toLowerCase().includes(searchTerm);
+      const matchesTitle = (post.title || post.frontmatter?.title)?.toLowerCase().includes(searchTerm);
       const matchesName = post.frontmatter?.name?.toLowerCase().includes(searchTerm);
       const matchesContent = post.plain?.toLowerCase().includes(searchTerm);
       

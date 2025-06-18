@@ -36,7 +36,7 @@ export default function ArticleTemplate({
                 <div className="mb-8">
                   <img 
                     src={post.frontmatter['cover-lg']} 
-                    alt={post.frontmatter.title}
+                    alt={post.title || post.frontmatter.title}
                     className="w-full rounded-xl object-cover"
                     style={{ aspectRatio: '3/2' }}
                   />

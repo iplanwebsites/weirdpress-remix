@@ -19,9 +19,10 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
     (typeof window !== 'undefined' ? window.location.href : 
      `${location.pathname}${location.search}${location.hash}`);
   
-  const title: string = frontmatter.title || frontmatter.name || 'Untitled';
+  const title: string = post.title || frontmatter.title || frontmatter.name || 'Untitled';
   const category: string = frontmatter.category || 'Misc';
   const photographer: string = frontmatter.photographer || '';
+  const photographerPortrait: string = frontmatter.photographer_portrait || frontmatter.artistPic || appConfig.defaultImages.projectCard;
   const year: string = frontmatter.year || '';
   const date: string = frontmatter.date ? new Date(frontmatter.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
@@ -36,10 +37,6 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   // Check if this is a project post
   const isProjectPost: boolean = isProject(post);
   
-  // Get recipe-specific data
-  const prepTime: string = frontmatter.prep_time || '';
-  const cookTime: string = frontmatter.cook_time || '';
-  const rating: number = post.rating || frontmatter.rating || appConfig.defaults.rating;
 
 
   return (
@@ -67,9 +64,9 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
           {/* Show photographer for projects, default author for articles */}
           <div className="flex items-center gap-3">
             <img 
-              className="w-10 h-10 rounded-full" 
+              className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-600" 
               alt={isProjectPost && photographer ? photographer : appConfig.mascot.name} 
-              src={appConfig.author.avatar}
+              src={isProjectPost && photographerPortrait ? photographerPortrait : appConfig.author.avatar}
             />
             <p className="font-medium text-gray-900 dark:text-gray-100">
               {isProjectPost && photographer ? photographer : appConfig.mascot.name}

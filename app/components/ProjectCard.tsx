@@ -21,7 +21,7 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
           <div className="aspect-[3/2] relative">
             <img
               src={imageUrl}
-              alt={post.frontmatter.title || post.frontmatter.name}
+              alt={post.title || post.frontmatter.title || post.frontmatter.name}
               className="h-full w-full object-cover"
               loading={loading}
             />
@@ -32,7 +32,7 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
       {/* Title */}
       <Link to={`/${year}/${post.slug}`} prefetch="viewport">
         <h3 className="text-lg font-semibold mt-3 mb-1 text-gray-900 dark:text-white hover:underline">
-          {post.frontmatter.title || post.frontmatter.name}
+          {post.title || post.frontmatter.title || post.frontmatter.name}
         </h3>
       </Link>
       

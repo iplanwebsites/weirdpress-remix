@@ -22,7 +22,7 @@ export default function SearchCard({ post, loading = "eager" }: SearchCardProps)
         <div className="aspect-[4/3] mb-3 overflow-hidden rounded-lg bg-gray-200 dark:bg-gray-700">
           <img
             src={imageUrl}
-            alt={post.frontmatter.title || post.frontmatter.name}
+            alt={post.title || post.frontmatter.title || post.frontmatter.name}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading={loading}
           />
@@ -50,7 +50,7 @@ export default function SearchCard({ post, loading = "eager" }: SearchCardProps)
       {/* Title */}
       <Link to={linkPath} prefetch="viewport">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white hover:underline">
-          {post.frontmatter.title || post.frontmatter.name}
+          {post.title || post.frontmatter.title || post.frontmatter.name}
         </h3>
       </Link>
     </div>

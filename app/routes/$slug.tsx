@@ -87,10 +87,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     : `${appConfig.siteUrl}${relativeImage}`;
   
   return [
-    { title: post.frontmatter.title },
+    { title: post.title || post.frontmatter.title },
     { name: "description", content: post.plain },
     { property: "og:image", content: ogImage },
-    { property: "og:title", content: post.frontmatter.title },
+    { property: "og:title", content: post.title || post.frontmatter.title },
     { property: "og:description", content: post.plain },
     { property: "og:type", content: "article" },
   ];

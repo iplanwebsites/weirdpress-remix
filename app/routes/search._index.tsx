@@ -35,7 +35,7 @@ export const loader: LoaderFunction = async ({ request }) => {
         
         // Ensure frontmatter has required properties
         const completeFrontmatter = {
-          title: frontmatter.title as string || frontmatter.name as string || 'Untitled',
+          title: (postData.title as string) || (frontmatter.title as string) || (frontmatter.name as string) || 'Untitled',
           public: frontmatter.public as boolean || true,
           ...frontmatter
         };

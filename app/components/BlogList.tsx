@@ -93,7 +93,7 @@ export default function BlogList({
                   to={`/${isProject(post) ? `${post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear()}/${post.slug}` : post.slug}`}
                   className="text-blue-700 hover:underline dark:text-blue-500"
                 >
-                  {post.frontmatter.title || post.frontmatter.name}
+                  {post.title || post.frontmatter.title || post.frontmatter.name}
                 </Link>
               </h2>
               

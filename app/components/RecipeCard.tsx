@@ -21,7 +21,7 @@ export default function RecipeCard({ post, loading = "eager" }: RecipeCardProps)
         <div className="aspect-[4/3] mb-3 overflow-hidden rounded-lg bg-gray-400">
           <img
             src={imageUrl}
-            alt={post.frontmatter.title || post.frontmatter.name}
+            alt={post.title || post.frontmatter.title || post.frontmatter.name}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading={loading}
           />
@@ -49,7 +49,7 @@ export default function RecipeCard({ post, loading = "eager" }: RecipeCardProps)
         
         {/* Title */}
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {post.frontmatter.title || post.frontmatter.name}
+          {post.title || post.frontmatter.title || post.frontmatter.name}
         </h3>
       </Link>
     </div>

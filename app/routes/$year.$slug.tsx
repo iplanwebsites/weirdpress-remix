@@ -45,7 +45,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   }
 
   const { post } = data;
-  const title = post.frontmatter.title || post.frontmatter.name || "Untitled";
+  const title = post.title || post.frontmatter.title || post.frontmatter.name || "Untitled";
   const description = post.frontmatter.description || post.frontmatter.excerpt || appConfig.siteDescription;
   const imageUrl = post.frontmatter.cover || post.firstImage || appConfig.defaultImages.ogImage;
 

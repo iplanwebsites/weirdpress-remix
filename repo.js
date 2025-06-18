@@ -8,7 +8,7 @@
 import { RepoMD } from "repo-md";
 // Create and export a singleton instance of the RepoMD client
 const repo = new RepoMD({
-  projectId: "6848af1cacdf98346841d302", // http://localhost:5177/iplanwebsites/klepto-repo/settings
+  projectId: "6851d519ac5bcd832fb4c887", // http://localhost:5177/iplanwebsites/klepto-repo/settings
 
   // rev: "68135ef83eb888fca85d2645", //  default to latest release if none are passed.
 

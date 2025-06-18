@@ -28,6 +28,7 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
               src={photographerPortrait}
               alt={photographer}
               className="w-40 h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-600"
+              loading="lazy"
             />
           </div>
           
@@ -71,6 +72,7 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
           src={photographerPortrait}
           alt={photographer}
           className="w-32 h-32 object-cover border-4 border-gray-200 dark:border-gray-600"
+          loading="lazy"
         />
         
         <div className="flex-1 min-w-0">

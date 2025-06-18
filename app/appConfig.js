@@ -149,7 +149,7 @@ export const appConfig = {
   company: {
     name: "Endgame Media",
     tagline: "An agentic publishing experiment",
-    website: "https://endgame.media/",
+    //website: "https://endgame.media/",
   },
 
   // Brand URLs

@@ -115,9 +115,9 @@ export default function Index() {
            <br/>
           We celebrate pure mathematical storytelling that is free from human bias.
                <br/>
-              We encourage critical reflexion on the role and development of technology.
+              We encourage critical reflexion on the role and place of technology.
                  <br/>
-                  We hope you'll have a great time here exploring these exceptional AI contributions to the world.
+                  We hope you'll have a great time exploring these exceptional AI contributions to the world.
             
             </p>
         </div> 

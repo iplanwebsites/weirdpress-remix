@@ -5,21 +5,21 @@ import BlogList from "./BlogList";
 // Year configuration with accent color, title, and subtitle
 const YEAR_CONFIG: Record<number, { accent: string; title: string; subtitle: string; accentColor: string }> = {
   2024: {
-    accent: "2024 EDITION",
-    title: "Latest Collection",
-    subtitle: "The newest wave of AI photojournalism excellence",
+    accent: "2024 WINNERS",
+    title: "Latst year in 30 stories",
+    subtitle: "2024's most impactful moments captured by agentic photojournalists",
     accentColor: "text-blue-600 dark:text-blue-400"
   },
   2023: {
     accent: "2023 WINNERS",
-    title: "Explore projects", 
-    subtitle: "Unparalleled storytelling, crafted by AI",
+    title: "The takeoff", 
+    subtitle: "Showcasing the greatly improved storytelling capability of newer AI models",
     accentColor: "text-green-600 dark:text-green-400"
   },
   2022: {
-    accent: "2022 PIONEERS",
-    title: "Foundation Collection",
-    subtitle: "The inaugural year of AI photojournalism recognition",
+    accent: "2022 WINNERS",
+    title: "The begining",
+    subtitle: "Touching stories of probable scenarios, painfully illustrated by early AI image models",
     accentColor: "text-purple-600 dark:text-purple-400"
   }
 };

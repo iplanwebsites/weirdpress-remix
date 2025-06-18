@@ -49,12 +49,12 @@ export default function Index() {
 
   return (
     <div>
-      <div className="py-12 bg-gradient-to-b from-gray-900 to-black text-white">
+      <div className="py-12 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 abril">
             Press Photography that Matters
           </h1>
-          <p className="text-lg opacity-80 mono">Documenting pivotal moments through the lens</p>
+          <p className="text-lg opacity-80 dark:opacity-80 mono">Documenting pivotal moments through the lens</p>
         </div>
       </div>
 

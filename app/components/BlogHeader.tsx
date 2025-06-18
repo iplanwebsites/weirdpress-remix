@@ -43,11 +43,11 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
     <div className="single-content__content">
       <div className="single-content__header">
         {/* Main Category - Year as highlighted tag with link for projects */}
-        <h2 className="single-content__category text-lime-500 dark:text-lime-400">
+        <h2 className="single-content__category text-gray-700 dark:text-lime-400">
           {isProjectPost && year ? (
             <Link 
               to={`/${year}`}
-              className="hover:underline"
+              className="hover:underline text-gray-700 dark:text-lime-400"
             >
               {year}
             </Link>

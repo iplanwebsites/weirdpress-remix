@@ -31,15 +31,9 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
             />
           </div>
           
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg mb-1">
+          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg mb-3">
             {photographer}
           </h3>
-          
-          {origin && (
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-              {origin}
-            </p>
-          )}
           
           {photographerBio && (
             <div className="text-gray-700 dark:text-gray-300 text-sm">

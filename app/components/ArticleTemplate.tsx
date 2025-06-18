@@ -31,17 +31,6 @@ export default function ArticleTemplate({
           <div className="lg:col-span-3">
             <article>
               <BlogHeader post={post} />
-               
-              {post.frontmatter['cover'] && (
-                <div className="mb-8">
-                  <img 
-                    src={post.frontmatter['cover-lg']} 
-                    alt={post.title || post.frontmatter.title}
-                    className="w-full rounded-xl object-cover"
-                    style={{ aspectRatio: '3/2' }}
-                  />
-                </div>
-              )}
               
               <BlogContent html={post.html} />
               

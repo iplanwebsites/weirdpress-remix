@@ -42,6 +42,18 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   return (
     <div className="single-content__content">
       <div className="single-content__header">
+        {/* Cover Image */}
+        {frontmatter['cover'] && (
+          <div className="mb-8">
+            <img 
+              src={frontmatter['cover-lg']} 
+              alt={title}
+              className="w-full rounded-xl object-cover"
+              style={{ aspectRatio: '3/2' }}
+            />
+          </div>
+        )}
+        
         {/* Main Category - Year as highlighted tag with link for projects */}
         <h2 className="single-content__category text-lime-500 dark:text-lime-400">
           {isProjectPost && year ? (

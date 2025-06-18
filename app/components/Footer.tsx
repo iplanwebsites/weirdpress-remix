@@ -55,10 +55,10 @@ export default function Footer() {
  
     external: true,
   },
-      { href: "/media", label: "Image Gallery", external: false },
+    //  { href: "/media", label: "Image Gallery", external: false },
         //  { href: "/contact", label: "Contact" },
    //        { href: "/blog", label: "Blog (legacy)", external: false },
-      { href: "/suggest", label: "Suggestions", external: false },
+     // { href: "/suggest", label: "Suggestions", external: false },
    
    
 

@@ -101,7 +101,7 @@ export default function BlogList({
                 <Link 
                   prefetch="viewport" 
                   to={`/${isProject(post) ? `${post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear()}/${post.slug}` : post.slug}`}
-                  className="text-blue-700 hover:underline dark:text-blue-500"
+                  className="text-black hover:underline dark:text-white"
                 >
                   {post.title || post.frontmatter.title || post.frontmatter.name}
                 </Link>
@@ -124,7 +124,7 @@ export default function BlogList({
                     {post.frontmatter.year}
                   </Link>
                 ) : post.frontmatter.category && (
-                  <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
+                  <span className="px-2 py-1 bg-blue-100 dark:bg-black text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
                     {post.frontmatter.category}
                   </span>
                 )}
@@ -148,7 +148,7 @@ export default function BlogList({
               <Link 
                 prefetch="viewport"  
                 to={`/${post.slug}`}
-                className="text-sm text-blue-700 hover:underline dark:text-blue-500"
+                className="text-sm text-black hover:underline dark:text-white"
               >
                 Read more →
               </Link>

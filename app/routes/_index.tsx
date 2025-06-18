@@ -53,16 +53,16 @@ export default function Index() {
   return (
     <div>
       <section 
-        className="relative bg-cover bg-center bg-no-repeat flex items-center"
+        className="relative bg-cover bg-center bg-no-repeat flex items-end"
         style={{
           backgroundImage: `url(${HERO_IMAGE_URL})`,
-          height: '70vh'
+          height: '80vh'
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="relative z-10 container mx-auto px-4">
+        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+        <div className="relative z-10 container mx-auto px-4 pb-8">
           <div className="text-left text-white max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
               The First Photography <br />Exhibition by Machines
             </h1>
             <div className="mt-8">

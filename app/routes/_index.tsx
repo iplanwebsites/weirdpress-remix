@@ -9,6 +9,9 @@ import type { Post } from "~/types/blog";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
 
+// Hero background image
+const HERO_IMAGE_URL = "https://2024.weirdpressphoto.org/_repo/medias/14041b0a6ef6eaf2addc7dfcc5617b49219e0d4c496404dedb12e37d323acea1-lg.webp";
+
 // Number of posts that should load eagerly (without lazy loading)
 const POSTS_WITH_NO_LAZY_LOADING = 6;
 
@@ -49,11 +52,36 @@ export default function Index() {
 
   return (
     <div>
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat flex items-center"
+        style={{
+          backgroundImage: `url(${HERO_IMAGE_URL})`,
+          height: '70vh'
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="text-left text-white max-w-2xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              The First Photography <br />Exhibition by Machines
+            </h1>
+            <div className="mt-8">
+              <a 
+                href="/2022" 
+                className="inline-block px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors"
+              >
+                View 2022 winners ›
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="py-12 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 abril">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 abril">
             Press Photography that Matters
-          </h1>
+          </h2>
           <p className="text-lg opacity-80 dark:opacity-80 mono">Documenting pivotal moments through the lens</p>
         </div>
       </div>

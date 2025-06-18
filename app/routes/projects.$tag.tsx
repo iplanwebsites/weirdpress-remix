@@ -64,8 +64,8 @@ export default function RecipesByTag() {
 
   const breadcrumbs = [
     { label: appConfig.siteName, href: '/', isLast: false },
-    { label: 'Recipes', href: '/recipes', isLast: false },
-    { label: formattedTag, href: `/recipes/${tag}`, isLast: true }
+    { label: 'Projects', href: '/projects', isLast: false },
+    { label: formattedTag, href: `/projects/${tag}`, isLast: true }
   ];
 
   return (
@@ -118,7 +118,7 @@ export default function RecipesByTag() {
               No recipes found for &ldquo;{formattedTag}&rdquo;
             </p>
             <Link 
-              to="/recipes" 
+              to="/projects" 
               className="bg-blue-600 dark:bg-blue-700 text-white dark:text-gray-100 hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors px-6 py-3 rounded-lg font-medium"
             >
               Browse All Recipes

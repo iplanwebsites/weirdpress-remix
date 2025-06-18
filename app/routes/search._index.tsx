@@ -119,7 +119,7 @@ export default function Search() {
             </div>
             <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">No results found</h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Try adjusting your search terms or browse our <Link to="/recipes" className="text-blue-600 dark:text-blue-400 hover:underline">latest recipes</Link>.
+              Try adjusting your search terms or browse our <Link to="/projects" className="text-blue-600 dark:text-blue-400 hover:underline">latest projects</Link>.
             </p>
           </div>
         )}

@@ -146,7 +146,7 @@ export default function BlogPost() {
     <ArticleTemplate
       post={data.post}
       similarPosts={data.similarPosts}
-      backLink="/recipes"
+      backLink="/projects"
       backLinkText="← Back to all posts"
       similarPostsTitle="You might also like"
       excludeArticlesInSimilar={true}

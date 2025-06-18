@@ -5,6 +5,7 @@ import repo from "../../repo";
 import type { Post } from "~/types/blog";
 import ErrorBoundaryComponent from "~/components/ErrorBoundary";
 import BlogList from "~/components/BlogList";
+import ProjectsPerYear from "~/components/ProjectsPerYear";
 import { Search } from "lucide-react";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
@@ -38,7 +39,7 @@ export default function RecipesIndex() {
   // Breadcrumb data
   const breadcrumbs = [
     { label: appConfig.siteName, href: '/', isLast: false },
-    { label: 'Projects', href: '/recipes', isLast: true }
+    { label: 'Projects', href: '/projects', isLast: true }
   ];
 
   // Project categories data
@@ -46,49 +47,49 @@ export default function RecipesIndex() {
     {
       title: 'Popular Categories',
       items: [
-        { label: 'Quick and Easy', href: '/recipes/quick-easy' },
-        { label: 'Meal Prep', href: '/recipes/meal-prep' },
-        { label: 'Vegan', href: '/recipes/vegan' },
-        { label: 'Vegetarian', href: '/recipes/vegetarian' },
-        { label: 'Pasta', href: '/recipes/pasta' },
-        { label: 'Soups', href: '/recipes/soups' },
-        { label: 'Salads', href: '/recipes/salads' },
-        { label: 'Dinner', href: '/recipes/dinner' },
-        { label: 'Kid-Friendly', href: '/recipes/kid-friendly' },
-        { label: 'Most Popular', href: '/recipes/popular' },
-        { label: 'All Recipes', href: '/recipes/all' }
+        { label: 'Quick and Easy', href: '/projects/quick-easy' },
+        { label: 'Meal Prep', href: '/projects/meal-prep' },
+        { label: 'Vegan', href: '/projects/vegan' },
+        { label: 'Vegetarian', href: '/projects/vegetarian' },
+        { label: 'Pasta', href: '/projects/pasta' },
+        { label: 'Soups', href: '/projects/soups' },
+        { label: 'Salads', href: '/projects/salads' },
+        { label: 'Dinner', href: '/projects/dinner' },
+        { label: 'Kid-Friendly', href: '/projects/kid-friendly' },
+        { label: 'Most Popular', href: '/projects/popular' },
+        { label: 'All Recipes', href: '/projects/all' }
       ]
     },
     {
       title: 'Recipes by Meal Type',
       items: [
-        { label: 'Breakfast', href: '/recipes/breakfast' },
-        { label: 'Lunch', href: '/recipes/lunch' },
-        { label: 'Dinner', href: '/recipes/dinner' },
-        { label: 'Appetizer', href: '/recipes/appetizer' },
-        { label: 'Snacks', href: '/recipes/snacks' },
-        { label: 'Desserts', href: '/recipes/desserts' },
-        { label: 'Drinks', href: '/recipes/drinks' }
+        { label: 'Breakfast', href: '/projects/breakfast' },
+        { label: 'Lunch', href: '/projects/lunch' },
+        { label: 'Dinner', href: '/projects/dinner' },
+        { label: 'Appetizer', href: '/projects/appetizer' },
+        { label: 'Snacks', href: '/projects/snacks' },
+        { label: 'Desserts', href: '/projects/desserts' },
+        { label: 'Drinks', href: '/projects/drinks' }
       ]
     },
     {
       title: 'Recipes by Diet',
       items: [
-        { label: 'Dairy-Free', href: '/recipes/dairy-free' },
-        { label: 'Gluten-Free', href: '/recipes/gluten-free' },
-        { label: 'Kid-Friendly', href: '/recipes/kid-friendly' },
-        { label: 'Healthy', href: '/recipes/healthy' },
-        { label: 'Vegan', href: '/recipes/vegan' },
-        { label: 'Vegetarian', href: '/recipes/vegetarian' }
+        { label: 'Dairy-Free', href: '/projects/dairy-free' },
+        { label: 'Gluten-Free', href: '/projects/gluten-free' },
+        { label: 'Kid-Friendly', href: '/projects/kid-friendly' },
+        { label: 'Healthy', href: '/projects/healthy' },
+        { label: 'Vegan', href: '/projects/vegan' },
+        { label: 'Vegetarian', href: '/projects/vegetarian' }
       ]
     },
     {
       title: 'Recipes by Season',
       items: [
-        { label: 'Spring', href: '/recipes/spring' },
-        { label: 'Summer', href: '/recipes/summer' },
-        { label: 'Fall', href: '/recipes/fall' },
-        { label: 'Winter', href: '/recipes/winter' }
+        { label: 'Spring', href: '/projects/spring' },
+        { label: 'Summer', href: '/projects/summer' },
+        { label: 'Fall', href: '/projects/fall' },
+        { label: 'Winter', href: '/projects/winter' }
       ]
     }
   ];
@@ -169,7 +170,7 @@ export default function RecipesIndex() {
           {/* View All Projects Button */}
           <div className="text-center mt-8">
             <Link
-              to="/recipes/all"
+              to="/projects/all"
               className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
             >
               View All Projects
@@ -234,7 +235,7 @@ export default function RecipesIndex() {
           {/* View All Articles Button */}
           <div className="text-center mt-8">
             <Link
-              to="/recipes/articles"
+              to="/projects/articles"
               className="inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
             >
               View All Articles
@@ -247,6 +248,23 @@ export default function RecipesIndex() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+          </div>
+        </section>
+      )}
+
+      {/* Projects by Year Section */}
+      {posts.length > 0 && (
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto">
+            <header className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Projects by Year
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Explore our work organized chronologically, from most recent to earliest
+              </p>
+            </header>
+            <ProjectsPerYear posts={posts} />
           </div>
         </section>
       )}

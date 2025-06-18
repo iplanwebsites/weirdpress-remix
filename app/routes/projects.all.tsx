@@ -56,7 +56,7 @@ export default function RecipesAll() {
       title="All Projects"
       description="Browse our complete collection of photography projects."
       cardType="project"
-      baseUrl="/recipes/all"
+      baseUrl="/projects/all"
     />
   );
 }

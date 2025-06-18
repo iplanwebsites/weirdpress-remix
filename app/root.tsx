@@ -18,7 +18,7 @@ import "./tailwind.css";
 import "./global.css";
 
 export const links: LinksFunction = () => [
-  { rel: "icon", href: appConfig.defaultImages.favicon, type: "image/png" },
+  //{ rel: "icon", href: appConfig.defaultImages.favicon, type: "image/png" },
   
   {
     rel: "preconnect",

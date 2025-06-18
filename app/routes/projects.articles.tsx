@@ -56,7 +56,7 @@ export default function RecipesArticles() {
       title="Articles & Guides"
       description="Discover cooking tips, techniques, and food knowledge to enhance your culinary journey."
       cardType="article"
-      baseUrl="/recipes/articles"
+      baseUrl="/projects/articles"
     />
   );
 }

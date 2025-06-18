@@ -20,7 +20,7 @@ interface ArticleTemplateProps {
 export default function ArticleTemplate({
   post,
   similarPosts,
-  backLink = "/recipes",
+  backLink = "/projects",
   backLinkText = "← Back to all posts",
   similarPostsTitle = "You might also like",
   excludeArticlesInSimilar = false
@@ -85,7 +85,7 @@ export default function ArticleTemplate({
             max={5}
             title={similarPostsTitle}
             showViewAll={true}
-            viewAllLink="/recipes"
+            viewAllLink="/projects"
             cardType="article"
             excludeArticles={excludeArticlesInSimilar}
           />

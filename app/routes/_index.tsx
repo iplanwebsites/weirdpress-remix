@@ -4,6 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import repo from "../../repo";
 import BlogList from "~/components/BlogList";
 import ThreeFeaturedBlog from "~/components/ThreeFeaturedBlog";
+import ProjectsPerYear from "~/components/ProjectsPerYear";
 import type { Post } from "~/types/blog";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
@@ -67,6 +68,23 @@ export default function Index() {
             />
           </div>
         </div>
+      )}
+
+      {/* Projects by Year Section */}
+      {posts.length > 0 && (
+        <section className="py-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <header className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Projects by Year
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Explore our work organized chronologically
+              </p>
+            </header>
+            <ProjectsPerYear posts={posts} />
+          </div>
+        </section>
       )}
 
       {/* Recent Posts Section  */}

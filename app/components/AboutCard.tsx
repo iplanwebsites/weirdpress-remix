@@ -33,10 +33,10 @@ AI Photojournalism
         
         <div className="space-y-2 text-sm">
           <div>
-            <a href="/about" className="text-accent hover:underline">📸 About WeirdPress</a>
+            <a href="/about" className="text-blue-700 dark:text-blue-400 hover:underline">📸 About WeirdPress</a>
           </div>
           <div>
-            <a href="/projects/all" className="text-accent hover:underline">🎞️ Browse all projects</a>
+            <a href="/projects/all" className="text-blue-700 dark:text-blue-400 hover:underline">🎞️ Browse all projects</a>
           </div>
         </div>
       </div>

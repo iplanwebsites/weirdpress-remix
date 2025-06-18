@@ -129,14 +129,6 @@ export default function Index() {
       {posts.length > 0 && (
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <header className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Projects by Year
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
-                Explore our work organized chronologically
-              </p>
-            </header>
             <ProjectsPerYear posts={posts} />
           </div>
         </section>

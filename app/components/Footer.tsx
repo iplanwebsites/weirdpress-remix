@@ -216,14 +216,16 @@ export default function Footer() {
                   <p className="text-sm mb-3">
                     {appConfig.company.tagline}
                   </p>
-                  <a 
-                    href={appConfig.company.website}
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm"
-                  >
-                    About →
-                  </a>
+                  {appConfig.company.website && (
+                    <a 
+                      href={appConfig.company.website}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-sm"
+                    >
+                      About →
+                    </a>
+                  )}
                 </div>
               </div>
 

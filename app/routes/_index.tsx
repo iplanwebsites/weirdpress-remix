@@ -120,7 +120,7 @@ export default function Index() {
         </section>
       )}
 
-      {/* Recent Posts Section  */}
+      {/* Recent Posts Section 
       {posts.length > 3 && (
         <BlogList 
           posts={posts.slice(3)} 
@@ -134,6 +134,7 @@ export default function Index() {
         />
       )}
 
+       */}
       {/* Articles & Guides Section */}
       {nonProjectPosts.length > 0 && (
         <BlogList 

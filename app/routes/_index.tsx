@@ -60,8 +60,8 @@ export default function Index() {
 
       {/* Featured Articles Section */} 
       {posts.length >= 3 && (
-        <div className="py-10 container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+        <div className="py-10">
+          <div className="max-w-7xl mx-auto px-4">
             <ThreeFeaturedBlog 
               heading="Featured Projects" 
               posts={posts}

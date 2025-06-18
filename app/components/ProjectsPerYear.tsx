@@ -47,7 +47,7 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
   return (
     <div className={`space-y-16 ${className}`}>
       {projectsByYear.map(({ year, posts: yearPosts }) => (
-        <section key={year} className="container mx-auto px-4">
+        <section key={year}>
           <h2 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">
             <Link
               to={`/${year}`}

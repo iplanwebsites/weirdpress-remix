@@ -5,10 +5,10 @@ export default function BookPromo() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 py-8">
           {/* Text Content */}
           <div className="flex-1">
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-3xl font-bold mb-4 text-black">
               Support AI journalism &amp; the future of Photography
             </h3>
-            <p className="text-lg">
+            <p className="text-lg ">
               Weird Press Photo operates entirely from donations.
               <br />
               Help us in our mission by donating as little as $5.

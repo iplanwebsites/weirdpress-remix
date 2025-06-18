@@ -27,6 +27,18 @@ export default function ArticleTemplate({
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-screen-2xl mx-auto">
+        {/* Cover Image - Full Width */}
+        {post.frontmatter['cover'] && (
+          <div className="mb-8">
+            <img 
+              src={post.frontmatter['cover-lg']} 
+              alt={post.title || post.frontmatter.title}
+              className="w-full rounded-xl object-cover"
+              style={{ aspectRatio: '3/2' }}
+            />
+          </div>
+        )}
+        
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3">
             <article>

@@ -1,0 +1,10 @@
+node_modules
+
+/.wrangler
+/build
+.env
+.dev.vars
+
+**/.claude/
+
+DEV/

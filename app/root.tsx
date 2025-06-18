@@ -102,8 +102,8 @@ export default function App() {
       <header className="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center">
-              <Logo />
+            <a href="/" className="flex items-center no-underline hover:no-underline">
+              <Logo showText={false} />
             </a>
             
             <div className="hidden md:block flex-1 max-w-md mx-8">

@@ -165,7 +165,7 @@ export default function BlogList({
             <div className="mt-8 text-center">
               <Link 
                 to={finalViewAllLink}
-                className="inline-block px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                className="inline-block px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-semibold rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
                 {viewAllLabel || (hasProjects ? "View All Projects" : "View All Posts")}
               </Link>

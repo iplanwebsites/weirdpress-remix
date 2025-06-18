@@ -9,7 +9,7 @@ const NODE_ENV = env.NODE_ENV || "development";
 
 const siteName = "WeirdPress Photo";
 const domain = "weirdpress.photo";
-
+/**/
 const logotypePink =
   "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/5a8f361b94859ac640e8b8aa4983a58db33fac5d206b90e5f79fbc1cca9730a2-md.webp";
 
@@ -20,9 +20,8 @@ const logoTail =
   "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/09ba77137912fe0ad74802d0fba6a7be8bd4388702eabed9287ebd09786a5b4c-md.webp";
 
 const blueprintDark =
-  "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/bc41c0da6c719403f824efa5fe0607248d295780acac39027550f5c2138adcbd-lg.webp";
-const blueprintLight =
-  "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/05037e51d73a10fef0b0bc39253d0aeda90b71783ec1c6fd9cc513d4591aea79-lg.webp";
+  "https://static.repo.md/projects/6851d519ac5bcd832fb4c887/_shared/medias/af3148f53bd93c046055b57e0d06fc2724c40b4fb1e9622b5cba692c6f3e21c8-md.webp";
+const blueprintLight = blueprintDark;
 
 export const appConfig = {
   // Site Information
@@ -86,8 +85,7 @@ export const appConfig = {
     image:
       "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/0cc5ad3419ffc0ef4abbebd8594e646e7181c6902f6b3e9164b08f1c42eac01d-sm.webp",
     altText: siteName + " logo",
-    description:
-      "Documenting the intersection of journalism and visual art.",
+    description: "Documenting the intersection of journalism and visual art.",
     longDescription:
       "WeirdPress Photo showcases compelling press photography that captures pivotal moments in journalism and culture. We celebrate the photographers who shape how we see and understand our world through their lenses.",
   },
@@ -112,7 +110,13 @@ export const appConfig = {
     titleTemplate: "%s | " + siteName,
     defaultDescription:
       "Explore compelling press photography and photojournalism at " + siteName,
-    defaultKeywords: ["press photography", "photojournalism", "documentary", "visual storytelling", "journalism"],
+    defaultKeywords: [
+      "press photography",
+      "photojournalism",
+      "documentary",
+      "visual storytelling",
+      "journalism",
+    ],
     twitterHandle: "@" + siteName,
     ogImage: "/img/og-default.jpg",
   },
@@ -168,7 +172,13 @@ export const appConfig = {
 
   // Content Categories
   categories: {
-    photography: ["breaking-news", "politics", "culture", "sports", "environment"],
+    photography: [
+      "breaking-news",
+      "politics",
+      "culture",
+      "sports",
+      "environment",
+    ],
     regions: ["north-america", "europe", "asia", "africa", "latin-america"],
     themes: ["conflict", "celebration", "daily-life", "nature", "urban"],
   },

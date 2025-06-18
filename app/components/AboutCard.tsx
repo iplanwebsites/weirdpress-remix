@@ -1,7 +1,7 @@
 
 export default function AboutCard() {
   return (
-    <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-lg">
+    <div className="bg-white dark:bg-black border border-gray-100 dark:border-gray-800 rounded-lg p-6 shadow-lg">
       <div className="prose dark:prose-invert max-w-none">
         <div className="flex justify-center mb-6">
           <img 

@@ -21,13 +21,13 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
 
   if (isSidebar) {
     return (
-      <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <div className="bg-white dark:bg-black border border-gray-100 dark:border-gray-800 rounded-lg p-6">
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <img 
               src={photographerPortrait}
               alt={photographer}
-              className="w-32 h-32 rounded-full object-cover border-4 border-gray-200 dark:border-gray-600"
+              className="w-40 h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-600"
             />
           </div>
           
@@ -65,7 +65,7 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
 
   // Full mode
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <div className="bg-white dark:bg-black border border-gray-100 dark:border-gray-800 rounded-lg p-6">
       <div className="flex items-start gap-6">
         <img 
           src={photographerPortrait}

@@ -3,11 +3,25 @@ import { Mail, Twitter, Instagram, Facebook } from "lucide-react";
 import { mainNavItems } from "~/config/navigation";
 import { appConfig } from '../appConfig.js';
 
+// Custom Patreon icon component since Lucide doesn't include it
+const PatreonIcon = ({ size = 24 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 512 512"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M512 194.8c0 101.3-82.4 183.8-183.8 183.8-101.7 0-184.4-82.4-184.4-183.8 0-101.6 82.7-184.3 184.4-184.3C429.6 10.5 512 93.2 512 194.8zM0 501.5h90v-491H0v491z" />
+  </svg>
+);
+
 export default function Footer() {
   const socialLinks = [
     { icon: Instagram, href: "https://instagram.com/weirdpressphoto", label: "Instagram" },
     { icon: Twitter, href: "https://twitter.com/weirdpressphoto", label: "Twitter" },
     { icon: Facebook, href: "https://www.facebook.com/Weird-Press-Photo-100899852714211/", label: "Facebook" },
+    { icon: PatreonIcon, href: "https://www.patreon.com/weirdpressphoto", label: "Patreon" },
     { icon: Mail, href: `mailto:${appConfig.contact.email}`, label: "Email" }
   ];
 
@@ -65,7 +79,7 @@ export default function Footer() {
               <div className="flex flex-col items-center">
                 <img 
                   src="/img/wpp4.svg"
-                  alt="WeirdPress Photo"
+                  alt="WeirdPress"
                   className="h-24 w-auto mb-3 object-contain"
                 />
                

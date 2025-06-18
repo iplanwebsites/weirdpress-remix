@@ -5,6 +5,7 @@ import BlogHeader from "./BlogHeader";
 import BlogList from "./BlogList";
 import TableOfContents from "./TableOfContents";
 import AboutCard from "./AboutCard";
+import BookPromo from "./BookPromo";
 
 interface ArticleTemplateProps {
   post: Post;
@@ -78,6 +79,9 @@ export default function ArticleTemplate({
             excludeArticles={excludeArticlesInSimilar}
           />
         )}
+        
+        {/* Book Promo Banner */}
+        <BookPromo />
       </div>
     </div>
   );

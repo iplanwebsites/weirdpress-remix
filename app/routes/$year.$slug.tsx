@@ -4,11 +4,7 @@ import { useLoaderData } from "@remix-run/react";
 import repo from "../../repo.js";
 import type { Post } from "~/types/blog";
 import { appConfig } from "~/appConfig.js";
-import BlogContent from "~/components/BlogContent";
-import BlogHeader from "~/components/BlogHeader";
-import BlogList from "~/components/BlogList";
-import TableOfContents from "~/components/TableOfContents";
-import AboutCard from "~/components/AboutCard";
+import ArticleTemplate from "~/components/ArticleTemplate";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { year, slug } = params;
@@ -71,38 +67,13 @@ export default function YearSlugPost() {
   const { post, similarPosts } = useLoaderData<{ post: Post; similarPosts: Post[] }>();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-8">
-          <BlogHeader post={post} />
-          <BlogContent post={post} />
-        </div>
-
-        {/* Sidebar */}
-        <aside className="lg:col-span-4 space-y-8">
-          {/* Table of Contents */}
-          {post.toc && post.toc.length > 0 && (
-            <div className="lg:sticky lg:top-8">
-              <TableOfContents toc={post.toc} />
-            </div>
-          )}
-          
-          {/* About Card */}
-          <AboutCard />
-        </aside>
-      </div>
-
-      {/* Similar Posts */}
-      {similarPosts && similarPosts.length > 0 && (
-        <div className="mt-16">
-          <BlogList 
-            posts={similarPosts} 
-            title="Similar Projects" 
-            cardType="project"
-          />
-        </div>
-      )}
-    </div>
+    <ArticleTemplate
+      post={post}
+      similarPosts={similarPosts}
+      backLink="/projects"
+      backLinkText="← Back to all projects"
+      similarPostsTitle="Similar Projects"
+      excludeArticlesInSimilar={true}
+    />
   );
 }

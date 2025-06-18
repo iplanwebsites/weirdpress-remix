@@ -18,6 +18,7 @@ interface BlogListProps {
   postsWithNoLazyLoading?: number;
   showSecret?: boolean;
   showNonPublic?: boolean;
+  excludeArticles?: boolean;
 }
 
 export default function BlogList({ 
@@ -32,13 +33,14 @@ export default function BlogList({
   cardType = 'default',
   postsWithNoLazyLoading = 6,
   showSecret = false,
-  showNonPublic = false
+  showNonPublic = false,
+  excludeArticles = false
 }: BlogListProps) {
   if (!posts || posts.length === 0) {
     return <p>No posts found.</p>;
   }
 
-  // Filter posts based on visibility settings
+  // Filter posts based on visibility settings and content type
   const filteredPosts = posts.filter(post => {
     // Hide secret posts unless showSecret is true
     if (post.frontmatter.secret === true && !showSecret) {
@@ -47,6 +49,11 @@ export default function BlogList({
     
     // Hide non-public posts unless showNonPublic is true
     if (post.frontmatter.public === false && !showNonPublic) {
+      return false;
+    }
+    
+    // Exclude articles if excludeArticles is true (keep only projects)
+    if (excludeArticles && !isProject(post)) {
       return false;
     }
     
@@ -91,7 +98,12 @@ export default function BlogList({
               </h2>
               
               <div className="flex flex-wrap gap-2 mb-3">
-                {post.frontmatter.category && (
+                {/* Show year for projects, category for others */}
+                {isProject(post) && post.frontmatter.year ? (
+                  <span className="px-2 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded text-xs font-medium">
+                    {post.frontmatter.year}
+                  </span>
+                ) : post.frontmatter.category && (
                   <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
                     {post.frontmatter.category}
                   </span>

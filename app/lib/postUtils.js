@@ -3,13 +3,14 @@
  */
 
 /**
- * Checks if a post is a project based on its originalFilePath
+ * Checks if a post is a project based on its originalFilePath or year field
  * @param {Object} post - The post object
  * @returns {boolean} - True if the post is a project
  */
 export function isProject(post) {
   const path = post.originalFilePath || "";
-  return path.startsWith("projects/") || path.includes("projects/");
+  const hasYear = post.frontmatter && post.frontmatter.year;
+  return path.startsWith("projects/") || path.includes("projects/") || hasYear;
 }
 
 /**

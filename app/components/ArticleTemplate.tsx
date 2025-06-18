@@ -6,6 +6,7 @@ import BlogList from "./BlogList";
 import TableOfContents from "./TableOfContents";
 import AboutCard from "./AboutCard";
 import BookPromo from "./BookPromo";
+import PhotographerCard from "./PhotographerCard";
 
 interface ArticleTemplateProps {
   post: Post;
@@ -60,6 +61,7 @@ export default function ArticleTemplate({
           
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-8 space-y-6">
+              <PhotographerCard post={post} mode="sidebar" />
               <AboutCard />
               {post.toc && post.toc.length > 0 && (
                 <TableOfContents items={post.toc} />
@@ -79,6 +81,14 @@ export default function ArticleTemplate({
             cardType="article"
             excludeArticles={excludeArticlesInSimilar}
           />
+        )}
+        
+        {/* Full Photographer Card */}
+        {post.frontmatter.photographer && (
+          <div id="photographer-full" className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">About the Photographer</h2>
+            <PhotographerCard post={post} mode="full" />
+          </div>
         )}
         
         {/* Book Promo Banner */}

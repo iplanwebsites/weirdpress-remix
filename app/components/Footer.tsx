@@ -56,16 +56,13 @@ export default function Footer() {
             <div className="mb-6">
               <div className="flex flex-col items-center">
                 <img 
-                  src={appConfig.logos.sm}
-                  alt={`${appConfig.siteName} Logo`}
-                  className="h-12 w-12 mb-3"
-                  style={{ width: '180px', height: '150px' }}
+                  src="/img/wpp4.svg"
+                  alt="WeirdPress Photo"
+                  className="h-24 w-24 mb-3 object-contain"
                 />
-                <img 
-                  src={appConfig.logotype} 
-                  alt={`${appConfig.siteName} Logotype`}
-                  style={{ width: '180px' }}
-                />
+                <span className="text-white font-bold text-lg">
+                  WeirdPress <span className="text-accent">Photo</span>
+                </span>
               </div>
             </div>
           </div>

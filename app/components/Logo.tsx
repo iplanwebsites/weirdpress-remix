@@ -32,6 +32,11 @@ export default function Logo({
 
   return (
     <div className={`flex items-center ${className}`}>
+      <img 
+        src="/img/wpp4.svg" 
+        alt="WeirdPress Photo"
+        className={`${sizeClasses[size]} mr-2`}
+      />
       {showText && (
         <span className={`referlogo ${textSizeClasses[size]} text-white font-bold`}>
           WeirdPress <span className="text-accent">Photo</span>

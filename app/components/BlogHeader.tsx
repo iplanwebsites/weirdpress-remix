@@ -1,5 +1,4 @@
 import { useLocation, Link } from "@remix-run/react";
-import { Star } from "lucide-react";
 import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
 import { isProject } from '~/lib/postUtils.js';
@@ -46,9 +45,18 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   return (
     <div className="single-content__content">
       <div className="single-content__header">
-        {/* Main Category - Year as highlighted tag */}
+        {/* Main Category - Year as highlighted tag with link for projects */}
         <h2 className="single-content__category text-lime-500 dark:text-lime-400">
-          <span>{year || category}</span>
+          {isProjectPost && year ? (
+            <Link 
+              to={`/${year}`}
+              className="hover:underline"
+            >
+              {year}
+            </Link>
+          ) : (
+            <span>{year || category}</span>
+          )}
         </h2>
         
         {/* Title */}
@@ -56,18 +64,20 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
         
         {/* Meta Information */}
         <div className="flex items-center gap-4 my-6">
-          {/* Photographer - show photographer name if available, otherwise default author */}
-          <div className={`flex items-center gap-3 ${isProjectPost ? 'hidden' : ''}`}>
+          {/* Show photographer for projects, default author for articles */}
+          <div className="flex items-center gap-3">
             <img 
               className="w-10 h-10 rounded-full" 
-              alt={photographer || appConfig.mascot.name} 
+              alt={isProjectPost && photographer ? photographer : appConfig.mascot.name} 
               src={appConfig.author.avatar}
             />
-            <p className="font-medium text-gray-900 dark:text-gray-100">{photographer || appConfig.mascot.name}</p>
+            <p className="font-medium text-gray-900 dark:text-gray-100">
+              {isProjectPost && photographer ? photographer : appConfig.mascot.name}
+            </p>
           </div>
           
-          {/* Separator - hidden for projects */}
-          <div className={`w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full ${isProjectPost ? 'hidden' : ''}`}></div>
+          {/* Separator */}
+          <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
           
           {/* Date - only show for non-project posts */}
           {!isProjectPost && (
@@ -79,42 +89,17 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
             </>
           )}
           
-          {/* Reading Time or Project Info */}
-          {isProjectPost ? (
-            <>
-              {/* Rating */}
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    className={`${
-                      i < rating
-                        ? "fill-yellow-400 text-yellow-400"
-                        : "fill-gray-200 text-gray-200 dark:fill-gray-600 dark:text-gray-600"
-                    }`}
-                  />
-                ))}
-              </div>
-              
-              {/* Prep Time */}
-              {prepTime && (
-                <>
-                  <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
-                  <p className="text-gray-600 dark:text-gray-400">Prep: {prepTime}</p>
-                </>
-              )}
-              
-              {/* Cook Time */}
-              {cookTime && (
-                <>
-                  <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
-                  <p className="text-gray-600 dark:text-gray-400">Cook: {cookTime}</p>
-                </>
-              )}
-            </>
-          ) : (
+          {/* Reading Time for articles only */}
+          {!isProjectPost && (
             <p className="text-gray-600 dark:text-gray-400">{readingTime}min read</p>
+          )}
+          
+          {/* Show region for projects */}
+          {isProjectPost && frontmatter.region && (
+            <>
+              <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
+              <p className="text-gray-600 dark:text-gray-400">{frontmatter.region}</p>
+            </>
           )}
         </div>
 

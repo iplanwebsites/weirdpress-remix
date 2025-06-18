@@ -10,8 +10,8 @@ interface ProjectCardProps {
 export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps) {
   const imageUrl = post.frontmatter['cover-md'] || post.frontmatter.cover || post.firstImage || appConfig.defaultImages.projectCard;
   const year = post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear();
-  const artistName = post.frontmatter.artistName || post.frontmatter.author || 'Unknown';
-  const artistPic = post.frontmatter.artistPic || null;
+  const photographer = post.frontmatter.photographer || post.frontmatter.artistName || post.frontmatter.author || 'Unknown';
+  const photographerPic = post.frontmatter.photographer_portrait || post.frontmatter.artistPic || null;
 
   return (
     <div className="project-card group cursor-pointer">
@@ -33,17 +33,17 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
           {post.frontmatter.title || post.frontmatter.name}
         </h3>
         
-        {/* Artist info */}
+        {/* Photographer info */}
         <div className="flex items-center text-sm opacity-50">
-          {artistPic && (
+          {photographerPic && (
             <img
-              src={artistPic}
-              alt={artistName}
+              src={photographerPic}
+              alt={photographer}
               className="w-5 h-5 rounded-full object-cover mr-2 border border-black"
               loading="lazy"
             />
           )}
-          <span>{artistName}</span>
+          <span>{photographer}</span>
           {year && <span className="ml-2">• {year}</span>}
         </div>
       </Link>

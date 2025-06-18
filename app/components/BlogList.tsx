@@ -97,12 +97,22 @@ export default function BlogList({
                 </Link>
               </h2>
               
+              {/* Show photographer for projects */}
+              {isProject(post) && post.frontmatter.photographer && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  by {post.frontmatter.photographer}
+                </p>
+              )}
+              
               <div className="flex flex-wrap gap-2 mb-3">
                 {/* Show year for projects, category for others */}
                 {isProject(post) && post.frontmatter.year ? (
-                  <span className="px-2 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded text-xs font-medium">
+                  <Link
+                    to={`/${post.frontmatter.year}`}
+                    className="px-2 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 hover:bg-lime-200 dark:hover:bg-lime-800 rounded text-xs font-medium transition-colors"
+                  >
                     {post.frontmatter.year}
-                  </span>
+                  </Link>
                 ) : post.frontmatter.category && (
                   <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs font-medium">
                     {post.frontmatter.category}

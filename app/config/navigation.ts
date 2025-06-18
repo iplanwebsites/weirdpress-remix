@@ -3,7 +3,7 @@ import { Home, FileText, Image, MessageCircle, Camera } from "lucide-react";
 export interface NavItem {
   href: string;
   label: string;
-  icon?: React.ComponentType<{ size?: number; className?: string }>;
+  icon?: React.ComponentType<{ size?: number | string; className?: string }>;
   external?: boolean;
   mobileOnly?: boolean;
 }

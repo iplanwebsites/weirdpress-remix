@@ -15,7 +15,7 @@ interface PagedListData {
 interface PagedListProps {
   title: string;
   description?: string;
-  cardType?: "recipe" | "article" | "guide" | "project";
+  cardType?: "default" | "recipe" | "article" | "project";
   baseUrl: string;
 }
 

@@ -4,7 +4,7 @@ import { useLoaderData, useSearchParams, Link } from "@remix-run/react";
 import SearchBar from "~/components/SearchBar";
 import SearchCard from "~/components/SearchCard";
 import type { Post } from "~/types/blog";
-import { isRecipe } from "~/lib/postUtils.js";
+import { isProject } from "~/lib/postUtils.js";
 import repo from "../../repo";
 import { appConfig } from "~/appConfig";
 
@@ -52,8 +52,8 @@ export const loader: LoaderFunction = async ({ request }) => {
           firstImage: (postData.firstImage as string) || undefined,
         } as Post;
         
-        // Only add rating properties for recipes
-        if (isRecipe(transformedPost)) {
+        // Only add rating properties for projects
+        if (isProject(transformedPost)) {
           return {
             ...transformedPost,
             rating: (postData.rating as number) || (frontmatter.rating as number) || appConfig.defaults.rating,

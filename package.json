@@ -1,5 +1,5 @@
 {
-  "name": "weirdpress-remix",
+  "name": "weirdpress-photo-remix",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -17,8 +17,10 @@
     "@remix-run/cloudflare": "^2.16.5",
     "@remix-run/react": "^2.16.5",
     "@remix-run/server-runtime": "^2.16.5",
+    "@types/marked": "^5.0.2",
     "isbot": "^4.1.0",
     "lucide-react": "^0.514.0",
+    "marked": "^15.0.12",
     "quick-lru": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

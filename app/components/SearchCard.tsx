@@ -15,10 +15,12 @@ export default function SearchCard({ post, loading = "eager" }: SearchCardProps)
   const rating = post.rating || appConfig.defaults.rating;
   const reviewCount = post.reviewCount || appConfig.defaults.reviewCount;
   const avgRating = post.avgRating || appConfig.defaults.avgRating;
+  const year = post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear();
+  const linkPath = isProjectPost ? `/${year}/${post.slug}` : `/${post.slug}`;
 
   return (
     <div className="group cursor-pointer">
-      <Link to={`/${post.slug}`} prefetch="viewport">
+      <Link to={linkPath} prefetch="viewport">
         {/* Image */}
         <div className="aspect-[4/3] mb-3 overflow-hidden rounded-lg bg-gray-400">
           <img

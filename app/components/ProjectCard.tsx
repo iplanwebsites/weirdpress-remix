@@ -15,7 +15,7 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
 
   return (
     <div className="project-card group cursor-pointer">
-      <Link to={`/${post.slug}`} prefetch="viewport">
+      <Link to={`/${year}/${post.slug}`} prefetch="viewport">
         {/* Image with frame effect */}
         <div className="frame overflow-hidden bg-accent">
           <div className="aspect-[3/2] relative">

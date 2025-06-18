@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "@remix-run/react";
 import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
+import { isProject } from '~/lib/postUtils.js';
 
 interface ThreeFeaturedBlogProps {
   heading: string;
@@ -22,11 +23,11 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {/* First Item: Larger layout (60% width) */}
         <div className="relative md:col-span-3">
-          <Link to={`/${featuredPosts[0].slug}`} prefetch="viewport">
+          <Link to={`/${isProject(featuredPosts[0]) ? `${featuredPosts[0].frontmatter.year || featuredPosts[0].frontmatter.edition || new Date().getFullYear()}/${featuredPosts[0].slug}` : featuredPosts[0].slug}`} prefetch="viewport">
             <div className="bg-gray-400 rounded-lg overflow-hidden">
               <img 
                 src={featuredPosts[0].frontmatter['cover-lg'] || featuredPosts[0].firstImage || appConfig.defaultImages.projectCard} 
-                alt={featuredPosts[0].title || featuredPosts[0].frontmatter.name} 
+                alt={featuredPosts[0].frontmatter.title || featuredPosts[0].frontmatter.name} 
                 className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" 
               />
             </div>
@@ -48,7 +49,7 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
         <div className="space-y-6 md:col-span-2">
           {featuredPosts.slice(1).map((post) => (
             <div key={post.slug} className="grid grid-cols-[160px_1fr] gap-3 2xl:grid-cols-[230px_1fr] 2xl:gap-5 w-full relative">
-              <Link to={`/${post.slug}`} prefetch="viewport" className="flex-shrink-0">
+              <Link to={`/${isProject(post) ? `${post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear()}/${post.slug}` : post.slug}`} prefetch="viewport" className="flex-shrink-0">
                 <div className="bg-gray-400 rounded-lg overflow-hidden">
                   <img 
                     src={post.frontmatter['cover-md'] || post.firstImage || appConfig.defaultImages.projectCard} 
@@ -61,7 +62,7 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
                 <p className="text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase">
                   {post.frontmatter.category || 'Project'}
                 </p>
-                <Link to={`/${post.slug}`} prefetch="viewport">
+                <Link to={`/${isProject(post) ? `${post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear()}/${post.slug}` : post.slug}`} prefetch="viewport">
                   <h3 className="text-lg 2xl:text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     {post.frontmatter.title || post.frontmatter.name}
                   </h3>

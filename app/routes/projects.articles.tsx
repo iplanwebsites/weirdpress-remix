@@ -1,13 +1,13 @@
 import { json } from "@remix-run/cloudflare";
 import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import repo from "../../repo";
-import { getNonRecipes } from "~/lib/postUtils";
+import { getNonProjects } from "~/lib/postUtils";
 import PagedList, { PagedListErrorBoundary } from "~/components/PagedList";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Articles & Guides  " },
-    { name: "description", content: "Browse all our cooking articles, guides, and food knowledge" },
+    { title: "Articles & Essays" },
+    { name: "description", content: "Browse our photography essays, critical analysis, and editorial content" },
   ];
 };
 
@@ -19,7 +19,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     const page = parseInt(url.searchParams.get("page") || "1", 10);
     
     const allPosts = await repo.getAllPosts();
-    const articles = getNonRecipes(allPosts);
+    const articles = getNonProjects(allPosts);
     
     const totalPosts = articles.length;
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);

@@ -70,6 +70,14 @@ export default function ArticleTemplate({
           </div>
         </div>
         
+        {/* Full Photographer Card */}
+        {post.frontmatter.photographer && (
+          <div id="photographer-full" className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">About the Photographer</h2>
+            <PhotographerCard post={post} mode="full" />
+          </div>
+        )}
+        
         {/* Similar Posts Section */}
         {similarPosts && similarPosts.length > 0 && (
           <BlogList 
@@ -81,14 +89,6 @@ export default function ArticleTemplate({
             cardType="article"
             excludeArticles={excludeArticlesInSimilar}
           />
-        )}
-        
-        {/* Full Photographer Card */}
-        {post.frontmatter.photographer && (
-          <div id="photographer-full" className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">About the Photographer</h2>
-            <PhotographerCard post={post} mode="full" />
-          </div>
         )}
         
         {/* Book Promo Banner */}

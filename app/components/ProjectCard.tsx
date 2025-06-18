@@ -22,7 +22,7 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
             <img
               src={imageUrl}
               alt={post.title || post.frontmatter.title || post.frontmatter.name}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading={loading}
             />
           </div>

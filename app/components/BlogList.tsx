@@ -4,6 +4,7 @@ import RecipeCard from "./RecipeCard";
 import ProjectCard from "./ProjectCard";
 import SearchCard from "./SearchCard";
 import { isProject } from "~/lib/postUtils.js";
+import { appConfig } from '../appConfig.js';
 
 interface BlogListProps {
   posts: Post[];
@@ -85,7 +86,16 @@ export default function BlogList({
         ) : cardType === 'article' ? (
           <SearchCard key={post.slug} post={post} loading={loading} />
         ) : (
-          <div key={post.slug} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div key={post.slug} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+            {/* Image */}
+            <div className="aspect-[4/3] bg-gray-200 dark:bg-gray-700 overflow-hidden">
+              <img
+                src={post.frontmatter['cover-md'] || post.frontmatter.cover || post.firstImage || appConfig.defaultImages.projectCard}
+                alt={post.title || post.frontmatter.title || post.frontmatter.name}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading={loading}
+              />
+            </div>
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">
                 <Link 

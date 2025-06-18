@@ -32,21 +32,10 @@ export default function Logo({
 
   return (
     <div className={`flex items-center ${className}`}>
-      <img 
-        src={appConfig.logos[size]} 
-        alt={`${appConfig.siteName} Logo`}
-        className={`${sizeClasses[size]} mr-2`}
-        style={{ width: size === 'xs' ? '32px' : '50px', height: size === 'xs' ? '25px' : '40px' }}
-      />
-         {showText && (
-      <img 
-        src={appConfig.logotype} 
-        alt={`${appConfig.siteName} Logotype`}
-        className={`${showText ? "mr-3" : ""}`}
-        style={{ height: size === 'xs' ? '20px' : '42px', marginBottom:'-5px' }}
-      />
-   
-  
+      {showText && (
+        <span className={`referlogo ${textSizeClasses[size]} text-white font-bold`}>
+          WeirdPress <span className="text-accent">Photo</span>
+        </span>
       )}
     </div>
   );

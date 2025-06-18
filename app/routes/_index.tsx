@@ -5,7 +5,7 @@ import repo from "../../repo";
 import BlogList from "~/components/BlogList";
 import ThreeFeaturedBlog from "~/components/ThreeFeaturedBlog";
 import type { Post } from "~/types/blog";
-import { getRecipes, getNonRecipes } from "~/lib/postUtils";
+import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
 
 // Number of posts that should load eagerly (without lazy loading)
@@ -23,20 +23,20 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: `${appConfig.siteName} 🦝 🍜` },
-    { name: "description", content: `${appConfig.siteDescription} - Discover recipes worth stealing  ` },
+    { title: `${appConfig.siteName}` },
+    { name: "description", content: `${appConfig.siteDescription}` },
   ];
 };
 
 export const loader: LoaderFunction = async () => {
   try {
     const allPosts = await repo.getAllPosts();
-    const recipes = getRecipes(allPosts);
-    const nonRecipes = getNonRecipes(allPosts);
-    const shuffledRecipes = shuffleArray(recipes);
-    const shuffledNonRecipes = shuffleArray(nonRecipes);
+    const projects = getProjects(allPosts);
+    const nonProjects = getNonProjects(allPosts);
+    const shuffledProjects = shuffleArray(projects);
+    const shuffledNonProjects = shuffleArray(nonProjects);
     
-    return json({ posts: shuffledRecipes, nonRecipePosts: shuffledNonRecipes });
+    return json({ posts: shuffledProjects, nonProjectPosts: shuffledNonProjects });
   } catch (error) {
     console.error("Error loading posts:", error);
     return json({ posts: [], nonRecipePosts: [] });
@@ -44,15 +44,16 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function Index() {
-  const { posts, nonRecipePosts } = useLoaderData<{ posts: Post[]; nonRecipePosts: Post[] }>();
+  const { posts, nonProjectPosts } = useLoaderData<{ posts: Post[]; nonProjectPosts: Post[] }>();
 
   return (
     <div>
-      <div className="py-12 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+      <div className="py-12 bg-gradient-to-b from-gray-900 to-black text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            Recipes worth stealing
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 abril">
+            Press Photography that Matters
           </h1>
+          <p className="text-lg opacity-80 mono">Documenting pivotal moments through the lens</p>
         </div>
       </div>
 
@@ -61,7 +62,7 @@ export default function Index() {
         <div className="py-10 container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <ThreeFeaturedBlog 
-              heading="Featured Recipes" 
+              heading="Featured Projects" 
               posts={posts}
             />
           </div>
@@ -73,23 +74,23 @@ export default function Index() {
         <BlogList 
           posts={posts.slice(3)} 
           max={200} 
-          title="Browse Recipes"
+          title="Latest Projects"
           showViewAll={true}
-          viewAllLink="/recipes"
-          viewAllLabel="Browse Recipes" 
-          cardType="recipe"
+          viewAllLink="/projects"
+          viewAllLabel="Browse Projects" 
+          cardType="project"
           postsWithNoLazyLoading={POSTS_WITH_NO_LAZY_LOADING}
         />
       )}
 
       {/* Articles & Guides Section */}
-      {nonRecipePosts.length > 0 && (
+      {nonProjectPosts.length > 0 && (
         <BlogList 
-          posts={nonRecipePosts} 
+          posts={nonProjectPosts} 
           max={200} 
-          title="Articles & Guides"
+          title="Articles & Essays"
           showViewAll={true}
-          viewAllLink="/recipes/articles"
+          viewAllLink="/projects/articles"
           viewAllLabel="All Articles"
           cardType="article"
           postsWithNoLazyLoading={POSTS_WITH_NO_LAZY_LOADING}

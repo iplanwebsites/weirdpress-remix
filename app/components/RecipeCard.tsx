@@ -9,7 +9,7 @@ interface RecipeCardProps {
 }
 
 export default function RecipeCard({ post, loading = "eager" }: RecipeCardProps) {
-  const imageUrl = post.frontmatter['cover-md'] || post.frontmatter.cover || post.firstImage || appConfig.defaultImages.recipeCard;
+  const imageUrl = post.frontmatter['cover-md'] || post.frontmatter.cover || post.firstImage || appConfig.defaultImages.projectCard;
   const rating = post.rating || appConfig.defaults.rating;
   const reviewCount = post.reviewCount || appConfig.defaults.reviewCount;
   const avgRating = post.avgRating || appConfig.defaults.avgRating;

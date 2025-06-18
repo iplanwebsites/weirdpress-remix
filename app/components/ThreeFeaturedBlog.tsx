@@ -25,14 +25,14 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
           <Link to={`/${featuredPosts[0].slug}`} prefetch="viewport">
             <div className="bg-gray-400 rounded-lg overflow-hidden">
               <img 
-                src={featuredPosts[0].frontmatter['cover-lg'] || featuredPosts[0].firstImage || appConfig.defaultImages.recipeCard} 
+                src={featuredPosts[0].frontmatter['cover-lg'] || featuredPosts[0].firstImage || appConfig.defaultImages.projectCard} 
                 alt={featuredPosts[0].title || featuredPosts[0].frontmatter.name} 
                 className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300" 
               />
             </div>
             <div className="mt-4 space-y-1 text-center">
               <p className="text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase">
-                {featuredPosts[0].frontmatter.category || 'Recipe'}
+                {featuredPosts[0].frontmatter.category || 'Project'}
               </p>
               <h3 className="text-2xl 2xl:text-3xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 {featuredPosts[0].frontmatter.title || featuredPosts[0].frontmatter.name}
@@ -51,7 +51,7 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
               <Link to={`/${post.slug}`} prefetch="viewport" className="flex-shrink-0">
                 <div className="bg-gray-400 rounded-lg overflow-hidden">
                   <img 
-                    src={post.frontmatter['cover-md'] || post.firstImage || appConfig.defaultImages.recipeCard} 
+                    src={post.frontmatter['cover-md'] || post.firstImage || appConfig.defaultImages.projectCard} 
                     alt={post.frontmatter.title || post.frontmatter.name} 
                     className="w-full h-32 2xl:h-40 object-cover hover:scale-105 transition-transform duration-300" 
                   />
@@ -59,7 +59,7 @@ export default function ThreeFeaturedBlog({ heading, posts }: ThreeFeaturedBlogP
               </Link>
               <div className="flex flex-col justify-center space-y-1">
                 <p className="text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase">
-                  {post.frontmatter.category || 'Recipe'}
+                  {post.frontmatter.category || 'Project'}
                 </p>
                 <Link to={`/${post.slug}`} prefetch="viewport">
                   <h3 className="text-lg 2xl:text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">

@@ -13,7 +13,7 @@ export default function Footer() {
 
   const footerNavItems = [
         { href: "/about", label: "About", external: false }, 
-      { href: "/recipes", label: "All Recipes", external: false },
+      { href: "/projects", label: "All Projects", external: false },
    //       { href: "/contact", label: "Contact" },
        
     //  ...mainNavItems.filter(item => item.external && item.label === "Chat"),
@@ -158,7 +158,7 @@ export default function Footer() {
           <div>
             <p className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Newsletter</p>
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-              Enjoy a daily dose of recipes, grocery finds, clever kitchen tips, and more.
+              Stay updated with the latest press photography exhibitions, artist features, and editorial insights.
             </p>
             
             <form className="mb-4">

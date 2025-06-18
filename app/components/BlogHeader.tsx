@@ -2,7 +2,7 @@ import { useLocation, Link } from "@remix-run/react";
 import { Star } from "lucide-react";
 import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
-import { isRecipe } from '~/lib/postUtils.js';
+import { isProject } from '~/lib/postUtils.js';
 import ShareBar from './ShareBar';
 
 interface BlogHeaderProps {
@@ -32,8 +32,8 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   const wordCount: number = post.plain?.split(/\s+/).length || 0;
   const readingTime: number = Math.max(1, Math.ceil(wordCount / 200));
   
-  // Check if this is a recipe post
-  const isRecipePost: boolean = isRecipe(post);
+  // Check if this is a project post
+  const isProjectPost: boolean = isProject(post);
   
   // Get recipe-specific data
   const prepTime: string = frontmatter.prep_time || '';
@@ -54,8 +54,8 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
         
         {/* Meta Information */}
         <div className="flex items-center gap-4 my-6">
-          {/* Author - hidden for recipes */}
-          <div className={`flex items-center gap-3 ${isRecipePost ? 'hidden' : ''}`}>
+          {/* Author - hidden for projects */}
+          <div className={`flex items-center gap-3 ${isProjectPost ? 'hidden' : ''}`}>
             <img 
               className="w-10 h-10 rounded-full" 
               alt={appConfig.mascot.name} 
@@ -64,11 +64,11 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
             <p className="font-medium text-gray-900 dark:text-gray-100">{appConfig.mascot.name}</p>
           </div>
           
-          {/* Separator - hidden for recipes */}
-          <div className={`w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full ${isRecipePost ? 'hidden' : ''}`}></div>
+          {/* Separator - hidden for projects */}
+          <div className={`w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full ${isProjectPost ? 'hidden' : ''}`}></div>
           
-          {/* Date - only show for non-recipe posts */}
-          {!isRecipePost && (
+          {/* Date - only show for non-project posts */}
+          {!isProjectPost && (
             <>
               <p className="text-gray-600 dark:text-gray-400">{date}</p>
               
@@ -77,8 +77,8 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
             </>
           )}
           
-          {/* Reading Time or Recipe Info */}
-          {isRecipePost ? (
+          {/* Reading Time or Project Info */}
+          {isProjectPost ? (
             <>
               {/* Rating */}
               <div className="flex items-center gap-1">

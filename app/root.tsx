@@ -15,6 +15,7 @@ import { mainNavItems } from "~/config/navigation";
 import { appConfig } from "~/appConfig.js";
 
 import "./tailwind.css";
+import "./global.css";
 
 export const links: LinksFunction = () => [
   { rel: "icon", href: appConfig.defaultImages.favicon, type: "image/png" },

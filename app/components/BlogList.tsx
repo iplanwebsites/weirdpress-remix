@@ -1,8 +1,9 @@
 import { Link } from "@remix-run/react";
 import type { Post } from "~/types/blog";
 import RecipeCard from "./RecipeCard";
+import ProjectCard from "./ProjectCard";
 import SearchCard from "./SearchCard";
-import { isRecipe } from "~/lib/postUtils.js";
+import { isProject } from "~/lib/postUtils.js";
 
 interface BlogListProps {
   posts: Post[];
@@ -13,7 +14,7 @@ interface BlogListProps {
   viewAllLabel?: string;
   className?: string;
   isRecipePage?: boolean;
-  cardType?: 'default' | 'recipe' | 'article';
+  cardType?: 'default' | 'recipe' | 'project' | 'article';
   postsWithNoLazyLoading?: number;
   showSecret?: boolean;
   showNonPublic?: boolean;
@@ -55,14 +56,14 @@ export default function BlogList({
   // Limit the number of posts if max is provided
   const displayPosts = max ? filteredPosts.slice(0, max) : filteredPosts;
 
-  // Determine if posts contain recipes using the same utility as other components
-  const hasRecipes = filteredPosts.some(post => isRecipe(post));
+  // Determine if posts contain projects using the same utility as other components
+  const hasProjects = filteredPosts.some(post => isProject(post));
 
   // Use provided viewAllLink or auto-detect based on content
-  const finalViewAllLink = viewAllLink || (hasRecipes ? "/recipes" : "/recipes/articles");
+  const finalViewAllLink = viewAllLink || (hasProjects ? "/projects" : "/projects/articles");
 
-  // Hide view all button on recipe page when showing recipes
-  const shouldShowViewAll = showViewAll && !(isRecipePage && hasRecipes);
+  // Hide view all button on recipe page when showing projects
+  const shouldShowViewAll = showViewAll && !(isRecipePage && hasProjects);
 
   const content = (
     <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-3">
@@ -72,6 +73,8 @@ export default function BlogList({
         
         return cardType === 'recipe' ? (
           <RecipeCard key={post.slug} post={post} loading={loading} />
+        ) : cardType === 'project' ? (
+          <ProjectCard key={post.slug} post={post} loading={loading} />
         ) : cardType === 'article' ? (
           <SearchCard key={post.slug} post={post} loading={loading} />
         ) : (
@@ -142,7 +145,7 @@ export default function BlogList({
                 to={finalViewAllLink}
                 className="inline-block px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               >
-                {viewAllLabel || (hasRecipes ? "View All Recipes" : "View All Posts")}
+                {viewAllLabel || (hasProjects ? "View All Projects" : "View All Posts")}
               </Link>
             </div>
           )}

@@ -6,28 +6,28 @@ import type { Post } from "~/types/blog";
 import ErrorBoundaryComponent from "~/components/ErrorBoundary";
 import BlogList from "~/components/BlogList";
 import { Search } from "lucide-react";
-import { getRecipes, getNonRecipes } from "~/lib/postUtils";
+import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Recipes" },
-    { name: "description", content: "Browse our delicious recipes" },
+    { title: "Projects" },
+    { name: "description", content: "Browse our photography projects" },
   ];
 };
 
 export const loader: LoaderFunction = async () => {
   try {
     const allPosts = await repo.getAllPosts();
-    const recipes = getRecipes(allPosts);
-    const articles = getNonRecipes(allPosts);
+    const projects = getProjects(allPosts);
+    const articles = getNonProjects(allPosts);
     
     return json({ 
-      posts: recipes,
+      posts: projects,
       articles: articles.slice(0, 6) // Only show first 6 articles for preview
     });
   } catch (error) {
-    console.error("Error loading recipes:", error);
+    console.error("Error loading projects:", error);
     return json({ posts: [], articles: [] });
   }
 };
@@ -38,11 +38,11 @@ export default function RecipesIndex() {
   // Breadcrumb data
   const breadcrumbs = [
     { label: appConfig.siteName, href: '/', isLast: false },
-    { label: 'Recipes', href: '/recipes', isLast: true }
+    { label: 'Projects', href: '/recipes', isLast: true }
   ];
 
-  // Recipe categories data
-  const recipeCategories = [
+  // Project categories data
+  const projectCategories = [
     {
       title: 'Popular Categories',
       items: [
@@ -93,8 +93,8 @@ export default function RecipesIndex() {
     }
   ];
 
-  // Get featured recipes (first 6 posts for featured section)
-  const featuredRecipes = posts.slice(0, 6);
+  // Get featured projects (first 6 posts for featured section)
+  const featuredProjects = posts.slice(0, 6);
 
   return (
     <main className="bg-gray-100 dark:bg-gray-900">
@@ -120,12 +120,12 @@ export default function RecipesIndex() {
 
         <header className="pt-3 pb-12 px-4 md:pt-5 md:pb-28 md:px-2 md:max-w-4xl mx-auto text-center">
           <h1 className="text-center text-white dark:text-gray-100 text-5xl md:text-7xl mb-4 md:mb-8 font-bold">
-            Recipes
+            Projects
           </h1>
           <p className="my-0 text-blue-100 dark:text-blue-200 md:text-xl max-w-4xl mx-auto">
-            We&apos;ve organized these recipes every way we could think of so you don&apos;t have to! 
-            Dietary restrictions, weeknight dinners, meal prep recipes, some of our most 
-            tried-and-true&hellip; no matter how you browse, we&apos;re sure you&apos;ll find just what you were looking for.
+            We&apos;ve organized these photography projects to showcase our best work. 
+            Browse through our collection of press photography, documentary projects, 
+            and visual storytelling that captures moments in time.
           </p>
         </header>
       </div>
@@ -143,8 +143,8 @@ export default function RecipesIndex() {
         </div>
       </section>
 
-      {/* Featured Recipes Section */}
-      {featuredRecipes.length > 0 && (
+      {/* Featured Projects Section */}
+      {featuredProjects.length > 0 && (
         <section className="pb-8 pt-4 px-4 mx-auto md:max-w-5xl">
           <header className="max-w-xl md:mx-auto text-center mb-8">
             <div className="flex justify-center items-center space-x-2 mb-4">
@@ -152,27 +152,27 @@ export default function RecipesIndex() {
                 ⭐
               </div>
               <h2 className="font-bold tracking-widest text-2xl uppercase text-blue-600 dark:text-blue-400 m-0">
-                Featured Recipes
+                Featured Projects
               </h2>
             </div>
             <p className="hidden md:block text-gray-600 dark:text-gray-300">
-              Out of all the many recipes in our kitchen, these are our shining stars - 
-              the recipes we come back to again and again (and again).
+              Out of all the many projects in our portfolio, these are our shining stars - 
+              the projects that best showcase our photographic vision.
             </p>
           </header>
 
           {/* Use BlogList Component with Recipe Cards */}
           <div className="p-6">
-            <BlogList posts={featuredRecipes} isRecipePage={true} cardType="recipe" />
+            <BlogList posts={featuredProjects} isRecipePage={true} cardType="project" />
           </div>
 
-          {/* View All Recipes Button */}
+          {/* View All Projects Button */}
           <div className="text-center mt-8">
             <Link
               to="/recipes/all"
               className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
             >
-              View All Recipes
+              View All Projects
               <svg 
                 className="ml-2 h-5 w-5" 
                 fill="none" 
@@ -186,8 +186,8 @@ export default function RecipesIndex() {
         </section>
       )}
 
-      {/* Recipe Categories Sections */}
-      {recipeCategories.map((category, categoryIndex) => (
+      {/* Project Categories Sections */}
+      {projectCategories.map((category, categoryIndex) => (
         <section key={categoryIndex} className="py-8 px-4 mx-auto md:max-w-5xl">
           <header className="border-b border-gray-400 dark:border-gray-600 pb-2 mb-3">
             <h2 className="text-lg text-gray-900 dark:text-gray-100 tracking-widest uppercase font-bold">
@@ -251,11 +251,11 @@ export default function RecipesIndex() {
         </section>
       )}
 
-      {/* No Recipes Message */}
+      {/* No Projects Message */}
       {posts.length === 0 && (
         <section className="py-12 px-4 mx-auto md:max-w-5xl text-center">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            No recipes found. Check back soon for delicious content!
+            No projects found. Check back soon for new content!
           </p>
         </section>
       )}
@@ -270,11 +270,11 @@ export function ErrorBoundary() {
     return <ErrorBoundaryComponent 
       status={error.status}
       statusText={error.statusText}
-      message="We're having trouble loading the recipes. Please try again later."
+      message="We're having trouble loading the projects. Please try again later."
     />;
   }
   
   return <ErrorBoundaryComponent 
-    message="There was an error loading the recipes. Please try again later."
+    message="There was an error loading the projects. Please try again later."
   />;
 }

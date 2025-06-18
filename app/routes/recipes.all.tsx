@@ -1,13 +1,13 @@
 import { json } from "@remix-run/cloudflare";
 import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import repo from "../../repo";
-import { getRecipes } from "~/lib/postUtils";
+import { getProjects } from "~/lib/postUtils";
 import PagedList, { PagedListErrorBoundary } from "~/components/PagedList";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "All Recipes  " },
-    { name: "description", content: "Browse all our delicious recipes with pagination" },
+    { title: "All Projects" },
+    { name: "description", content: "Browse all our photography projects with pagination" },
   ];
 };
 
@@ -19,15 +19,15 @@ export const loader: LoaderFunction = async ({ request }) => {
     const page = parseInt(url.searchParams.get("page") || "1", 10);
     
     const allPosts = await repo.getAllPosts();
-    const recipes = getRecipes(allPosts);
+    const projects = getProjects(allPosts);
     
-    const totalPosts = recipes.length;
+    const totalPosts = projects.length;
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
     const currentPage = Math.max(1, Math.min(page, totalPages));
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
     
-    const paginatedPosts = recipes.slice(startIndex, endIndex);
+    const paginatedPosts = projects.slice(startIndex, endIndex);
     
     return json({
       posts: paginatedPosts,
@@ -38,7 +38,7 @@ export const loader: LoaderFunction = async ({ request }) => {
       hasPreviousPage: currentPage > 1,
     });
   } catch (error) {
-    console.error("Error loading recipes:", error);
+    console.error("Error loading projects:", error);
     return json({
       posts: [],
       currentPage: 1,
@@ -53,9 +53,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function RecipesAll() {
   return (
     <PagedList
-      title="All Recipes"
-      description="Browse our complete collection of delicious recipes."
-      cardType="recipe"
+      title="All Projects"
+      description="Browse our complete collection of photography projects."
+      cardType="project"
       baseUrl="/recipes/all"
     />
   );
@@ -63,6 +63,6 @@ export default function RecipesAll() {
 
 export function ErrorBoundary() {
   return (
-    <PagedListErrorBoundary message="We're having trouble loading the recipes. Please try again later." />
+    <PagedListErrorBoundary message="We're having trouble loading the projects. Please try again later." />
   );
 }

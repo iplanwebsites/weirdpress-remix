@@ -3,13 +3,13 @@
  */
 
 /**
- * Checks if a post is a recipe based on its originalFilePath
+ * Checks if a post is a project based on its originalFilePath
  * @param {Object} post - The post object
- * @returns {boolean} - True if the post is a recipe
+ * @returns {boolean} - True if the post is a project
  */
-export function isRecipe(post) {
+export function isProject(post) {
   const path = post.originalFilePath || "";
-  return path.startsWith("recipes/") || path.includes("recipes/");
+  return path.startsWith("projects/") || path.includes("projects/");
 }
 
 /**
@@ -29,7 +29,7 @@ export function isGuide(post) {
  */
 export function isArticle(post) {
   const path = post.originalFilePath || "";
-  return path.startsWith("articles/") && !isRecipe(post) && !isGuide(post);
+  return path.startsWith("articles/") && !isProject(post) && !isGuide(post);
 }
 
 /**
@@ -42,8 +42,8 @@ export function extractCategory(post) {
   const pathParts = path.split("/");
 
   // Extract category from path structure
-  if (path.startsWith("articles/recipes/") && pathParts.length > 3) {
-    return pathParts[2]; // articles/recipes/[category]/file.md
+  if (path.startsWith("articles/projects/") && pathParts.length > 3) {
+    return pathParts[2]; // articles/projects/[category]/file.md
   } else if (path.startsWith("articles/countries/")) {
     return pathParts[2]; // articles/countries/[country]/file.md
   } else if (path.startsWith("articles/guides/") && pathParts.length > 3) {
@@ -73,12 +73,12 @@ export function addCategoryToPost(post) {
 }
 
 /**
- * Filters posts to only include recipes
+ * Filters posts to only include projects
  * @param {Array} posts - Array of post objects
- * @returns {Array} - Filtered array of recipe posts
+ * @returns {Array} - Filtered array of project posts
  */
-export function filterRecipes(posts) {
-  return posts.filter(isRecipe);
+export function filterProjects(posts) {
+  return posts.filter(isProject);
 }
 
 /**
@@ -131,13 +131,13 @@ export function processPosts(posts) {
 }
 
 /**
- * Gets and processes only recipe posts
+ * Gets and processes only project posts
  * @param {Array} posts - Array of all post objects
- * @returns {Array} - Processed array of recipe posts only
+ * @returns {Array} - Processed array of project posts only
  */
-export function getRecipes(posts) {
-  const recipes = filterRecipes(posts);
-  return processPosts(recipes);
+export function getProjects(posts) {
+  const projects = filterProjects(posts);
+  return processPosts(projects);
 }
 
 /**
@@ -161,20 +161,20 @@ export function getArticles(posts) {
 }
 
 /**
- * Filters posts to exclude recipes (everything that is NOT a recipe)
+ * Filters posts to exclude projects (everything that is NOT a project)
  * @param {Array} posts - Array of post objects
- * @returns {Array} - Filtered array of non-recipe posts
+ * @returns {Array} - Filtered array of non-project posts
  */
-export function filterNonRecipes(posts) {
-  return posts.filter(post => !isRecipe(post));
+export function filterNonProjects(posts) {
+  return posts.filter(post => !isProject(post));
 }
 
 /**
- * Gets and processes all posts that are NOT recipes
+ * Gets and processes all posts that are NOT projects
  * @param {Array} posts - Array of all post objects
- * @returns {Array} - Processed array of non-recipe posts
+ * @returns {Array} - Processed array of non-project posts
  */
-export function getNonRecipes(posts) {
-  const nonRecipes = filterNonRecipes(posts);
-  return processPosts(nonRecipes);
+export function getNonProjects(posts) {
+  const nonProjects = filterNonProjects(posts);
+  return processPosts(nonProjects);
 }

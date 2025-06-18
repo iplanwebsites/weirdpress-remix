@@ -1,4 +1,4 @@
-import { Home, FileText, Image, MessageCircle, ChefHat } from "lucide-react";
+import { Home, FileText, Image, MessageCircle, Camera } from "lucide-react";
 
 export interface NavItem {
   href: string;
@@ -34,9 +34,9 @@ export const mainNavItems: NavItem[] = [
   */
 
     {
-    href: "/recipes/all",
-    label: "Recipes",
-    icon: ChefHat,
+    href: "/projects/all",
+    label: "Projects",
+    icon: Camera,
   },
   {
     href: "/about",

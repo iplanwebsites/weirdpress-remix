@@ -13,7 +13,7 @@ declare module "@remix-run/cloudflare" {
   }
 }
 
-const viteProxy1 = createViteProxy('6848af1cacdf98346841d302', '_repo')
+const viteProxy1 = createViteProxy('6851d519ac5bcd832fb4c887', '_repo')
 //const viteProxy2 = createViteProxy('6848af1cacdf98346841d302', '_repo_docs')
 //const viteProxy3 = createViteProxy('6848af1cacdf98346841d302', '_repo_blog')
 

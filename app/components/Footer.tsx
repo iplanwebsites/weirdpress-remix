@@ -58,11 +58,9 @@ export default function Footer() {
                 <img 
                   src="/img/wpp4.svg"
                   alt="WeirdPress Photo"
-                  className="h-24 w-24 mb-3 object-contain"
+                  className="h-24 w-auto mb-3 object-contain"
                 />
-                <span className="text-white font-bold text-lg">
-                  WeirdPress <span className="text-accent">Photo</span>
-                </span>
+               
               </div>
             </div>
           </div>

@@ -22,6 +22,8 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   
   const title: string = frontmatter.title || frontmatter.name || 'Untitled';
   const category: string = frontmatter.category || 'Misc';
+  const photographer: string = frontmatter.photographer || '';
+  const year: string = frontmatter.year || '';
   const date: string = frontmatter.date ? new Date(frontmatter.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
@@ -44,9 +46,9 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   return (
     <div className="single-content__content">
       <div className="single-content__header">
-        {/* Category */}
-        <h2 className="single-content__category  text-lime-500 dark:text-lime-400">
-          <span>{category}</span>
+        {/* Main Category - Year as highlighted tag */}
+        <h2 className="single-content__category text-lime-500 dark:text-lime-400">
+          <span>{year || category}</span>
         </h2>
         
         {/* Title */}
@@ -54,14 +56,14 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
         
         {/* Meta Information */}
         <div className="flex items-center gap-4 my-6">
-          {/* Author - hidden for projects */}
+          {/* Photographer - show photographer name if available, otherwise default author */}
           <div className={`flex items-center gap-3 ${isProjectPost ? 'hidden' : ''}`}>
             <img 
               className="w-10 h-10 rounded-full" 
-              alt={appConfig.mascot.name} 
+              alt={photographer || appConfig.mascot.name} 
               src={appConfig.author.avatar}
             />
-            <p className="font-medium text-gray-900 dark:text-gray-100">{appConfig.mascot.name}</p>
+            <p className="font-medium text-gray-900 dark:text-gray-100">{photographer || appConfig.mascot.name}</p>
           </div>
           
           {/* Separator - hidden for projects */}

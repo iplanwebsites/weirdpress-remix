@@ -6,6 +6,7 @@ import BlogList from "~/components/BlogList";
 import ThreeFeaturedBlog from "~/components/ThreeFeaturedBlog";
 import ProjectsPerYear from "~/components/ProjectsPerYear";
 import AIPhotojournalists from "~/components/AIPhotojournalists";
+import FAQ from "~/components/FAQ";
 import type { Post } from "~/types/blog";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
@@ -147,6 +148,9 @@ export default function Index() {
 
       {/* AI Photojournalists Section */}
       <AIPhotojournalists posts={posts} />
+
+      {/* FAQ Section */}
+      <FAQ items={appConfig.faq} />
 
       {/* Recent Posts Section 
       {posts.length > 3 && (

@@ -136,9 +136,6 @@ export default function Index() {
         </div>
       )}
 
-      {/* AI Photojournalists Section */}
-      <AIPhotojournalists posts={posts} />
-
       {/* Projects by Year Section */}
       {posts.length > 0 && (
         <section className="py-12">
@@ -147,6 +144,9 @@ export default function Index() {
           </div>
         </section>
       )}
+
+      {/* AI Photojournalists Section */}
+      <AIPhotojournalists posts={posts} />
 
       {/* Recent Posts Section 
       {posts.length > 3 && (

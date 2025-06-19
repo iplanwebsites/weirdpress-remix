@@ -15,7 +15,7 @@ interface SearchResult {
 export const meta: MetaFunction = () => {
   return [
     { title: `Search - ${appConfig.siteName}` },
-    { name: "description", content: "Search for recipes and cooking tips" },
+    { name: "description", content: "Search for projects and photo series" },
   ];
 };
 
@@ -133,7 +133,7 @@ export default function Search() {
             </div>
             <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">Start searching</h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Enter a search term above to find recipes and cooking tips.
+              Enter a search term above.
             </p>
           </div>
         )}

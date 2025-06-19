@@ -92,7 +92,7 @@ export const appConfig = {
 
   // Search Configuration
   search: {
-    placeholder: "Search photos...",
+    placeholder: "Search ",
     autocompleteEndpoint: "/api/search/autocomplete",
     debounceDelay: 300,
   },

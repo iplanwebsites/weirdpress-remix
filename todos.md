@@ -37,3 +37,6 @@ technical_note: "Shot on Canon EOS 5D Mark IV with 24-70mm and 85mm lenses, usin
 .
 
 lots of colors are hardcoded and prevent light-drak themes to work. the background of site especially. adjust. The yellow bg on card should also just be for the image( to tint them on hover, nothig else, normally, image should be 100% opacity and yellow bg not visible in regular state..). also, in the cards, we have ugly text-hover effect. just show underline on the title, not other texts
+a
+
+Ad

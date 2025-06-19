@@ -34,7 +34,7 @@ export const mainNavItems: NavItem[] = [
   */
 
     {
-    href: "/projects/all",
+    href: "/projects",
     label: "Projects",
     icon: Camera,
   },

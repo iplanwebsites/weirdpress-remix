@@ -107,9 +107,6 @@ export default function App() {
               <Logo showText={false} />
             </a>
             
-            <div className="hidden md:block flex-1 max-w-md mx-8">
-              <SearchBar />
-            </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:block">

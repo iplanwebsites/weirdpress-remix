@@ -27,6 +27,7 @@ export default function Footer() {
 
   const footerNavItems = [
         { href: "/about", label: "About", external: false }, 
+        { href: "/search", label: "Search", external: false },
       { href: "/projects", label: "All Projects", external: false },
    //       { href: "/contact", label: "Contact" },
        

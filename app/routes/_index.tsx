@@ -5,6 +5,7 @@ import repo from "../../repo";
 import BlogList from "~/components/BlogList";
 import ThreeFeaturedBlog from "~/components/ThreeFeaturedBlog";
 import ProjectsPerYear from "~/components/ProjectsPerYear";
+import AIPhotojournalists from "~/components/AIPhotojournalists";
 import type { Post } from "~/types/blog";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
@@ -134,6 +135,9 @@ export default function Index() {
           </div>
         </div>
       )}
+
+      {/* AI Photojournalists Section */}
+      <AIPhotojournalists posts={posts} />
 
       {/* Projects by Year Section */}
       {posts.length > 0 && (

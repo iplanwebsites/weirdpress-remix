@@ -22,13 +22,13 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
   const title: string = post.title || frontmatter.title || frontmatter.name || 'Untitled';
   const category: string = frontmatter.category || 'Misc';
   const photographer: string = frontmatter.photographer || '';
-  const photographerPortrait: string = frontmatter.photographer_portrait || frontmatter.artistPic || appConfig.defaultImages.projectCard;
+  const photographerPortrait: string = frontmatter.photographer_portrait || frontmatter.artistPic || '';
   const year: string = frontmatter.year || '';
   const date: string = frontmatter.date ? new Date(frontmatter.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
-  }) : 'Unknown date';
+  }) : '';
   
   // Calculate reading time (rough estimate: 200 words per minute)
   const wordCount: number = post.plain?.split(/\s+/).length || 0;
@@ -63,22 +63,25 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
         <div className="flex items-center gap-4 my-6">
           {/* Show photographer for projects, default author for articles */}
           <div className="flex items-center gap-3">
-            <img 
-              className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-600" 
-              alt={isProjectPost && photographer ? photographer : appConfig.mascot.name} 
-              src={isProjectPost && photographerPortrait ? photographerPortrait : appConfig.author.avatar}
-            />
+            {/* Only show image if it's a project with photographer portrait */}
+            {isProjectPost && photographerPortrait && (
+              <img 
+                className="w-10 h-10 rounded-full object-cover border border-gray-300 dark:border-gray-600" 
+                alt={photographer} 
+                src={photographerPortrait}
+              />
+            )}
             <p className="font-medium text-gray-900 dark:text-gray-100">
               {isProjectPost && photographer ? photographer : appConfig.mascot.name}
             </p>
           </div>
           
-          {/* Separator */}
-          <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
-          
-          {/* Date - only show for non-project posts */}
-          {!isProjectPost && (
+          {/* Date - only show for non-project posts and if date exists */}
+          {!isProjectPost && date && (
             <>
+              {/* Separator */}
+              <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
+              
               <p className="text-gray-600 dark:text-gray-400">{date}</p>
               
               {/* Separator  */}

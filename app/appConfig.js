@@ -51,19 +51,20 @@ export const appConfig = {
     userAvatar: "/img/default-avatar.png",
     siteLogo: "/logo-light.png",
     siteLogoDark: "/logo-dark.png",
-    favicon:
-      "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xs.webp",
+    favicon: "",
+    // "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xs.webp",
     ogImage: blueprintLight,
   },
 
   // Logo Images (different sizes)
+  /*
   logos: {
     xs: "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xs.webp",
     sm: "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-sm.webp",
     md: "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-md.webp",
     lg: "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-lg.webp",
     xl: "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xl.webp",
-  },
+  },*/
 
   // Logotype
   logotype: logoTail, //logotypeMetal,
@@ -74,8 +75,8 @@ export const appConfig = {
   // Author/Mascot Information
   author: {
     name: siteName, //"Klepto",
-    avatar:
-      "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xs.webp",
+    avatar: "",
+    //  "https://static.repo.md/projects/6848af1cacdf98346841d302/_shared/medias/43dccbdb4a540c38d7cd4a5fcd510cd5a39310775aeb1d297d76c8d112c7bf91-xs.webp",
     byline: "By " + siteName,
   },
 

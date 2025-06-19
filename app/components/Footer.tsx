@@ -49,12 +49,12 @@ export default function Footer() {
 
 
       // ...mainNavItems.filter(item => item.external && item.label === "Chat"),
-         {
+      /*   {
     href: appConfig.services.chatUrl,
     label: "Chat",
  
     external: true,
-  },
+  },*/
     //  { href: "/media", label: "Image Gallery", external: false },
         //  { href: "/contact", label: "Contact" },
    //        { href: "/blog", label: "Blog (legacy)", external: false },

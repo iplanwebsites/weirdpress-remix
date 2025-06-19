@@ -37,6 +37,12 @@ body {
   color: var(--text-primary);
 }
 
+@media (max-width: 768px) {
+  body {
+    padding: 2px;
+  }
+}
+
 /* Override Tailwind defaults for dark theme */
 body, 
 #root {

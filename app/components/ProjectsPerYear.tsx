@@ -70,7 +70,7 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
     <div className={`space-y-16 ${className}`}>
       {projectsByYear.map(({ year, posts: yearPosts }) => (
         <section key={year} className="scroll-mt-20" id={`year-${year}`}>
-          <div className="sticky top-16 bg-white dark:bg-black z-10 py-3 md:py-6 mb-8 md:mb-12 text-center border-b border-gray-100 dark:border-gray-800">
+          <div className="sticky top-16 bg-white/80 dark:bg-black/80 backdrop-blur-md z-10 py-3 md:py-6 mb-8 md:mb-12 text-center border-b border-gray-100 dark:border-gray-800">
             {YEAR_CONFIG[year] ? (
               <>
                 <p className={`text-sm font-semibold uppercase tracking-wider mb-2 ${YEAR_CONFIG[year].accentColor}`}>

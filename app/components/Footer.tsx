@@ -21,7 +21,7 @@ export default function Footer() {
     { icon: Instagram, href: "https://instagram.com/weirdpressphoto", label: "Instagram" },
     { icon: Twitter, href: "https://twitter.com/weirdpressphoto", label: "Twitter" },
     { icon: Facebook, href: "https://www.facebook.com/Weird-Press-Photo-100899852714211/", label: "Facebook" },
-    { icon: PatreonIcon, href: "https://www.patreon.com/weirdpressphoto", label: "Patreon" },
+    { icon: PatreonIcon, href: "https://www.patreon.com/weirdpressphoto", label: "Patreon" }, 
     { icon: Mail, href: `mailto:${appConfig.contact.email}`, label: "Email" }
   ];
 

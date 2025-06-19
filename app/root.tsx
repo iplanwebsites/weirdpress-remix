@@ -14,12 +14,13 @@ import { Menu, Search } from "lucide-react";
 import { mainNavItems } from "~/config/navigation";
 import { appConfig } from "~/appConfig.js";
 
-import "./tailwind.css";
-import "./global.css";
+import tailwindStyles from "./tailwind.css?url";
+import globalStyles from "./global.css?url";
 
 export const links: LinksFunction = () => [
   //{ rel: "icon", href: appConfig.defaultImages.favicon, type: "image/png" },
-  
+  { rel: "stylesheet", href: tailwindStyles },
+  { rel: "stylesheet", href: globalStyles },
   {
     rel: "preconnect",
     href: appConfig.cdn.baseUrl,

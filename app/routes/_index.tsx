@@ -97,7 +97,7 @@ export default function Index() {
                 href="/2024" 
                 className="inline-block px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors"
               >
-                2024 in photography  ›
+                2024 in photography  › 
               </a>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Index() {
                <br/>
               We encourage critical reflexion on the role and place of technology.
                  <br/>
-                  We hope you'll have a great time exploring these exceptional AI contributions to the world.
+                  We hope you'll have a great time exploring these exceptional AI contributions to the world.  
             
             </p>
         </div> 

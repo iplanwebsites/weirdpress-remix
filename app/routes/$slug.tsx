@@ -147,7 +147,7 @@ export default function BlogPost() {
       post={data.post}
       similarPosts={data.similarPosts}
       backLink="/projects"
-      backLinkText="← Back to all posts"
+      backLinkText=" "
       similarPostsTitle="You might also like"
       excludeArticlesInSimilar={true}
     />

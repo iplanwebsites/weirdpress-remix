@@ -7,6 +7,8 @@ import TableOfContents from "./TableOfContents";
 import AboutCard from "./AboutCard";
 import BookPromo from "./BookPromo";
 import PhotographerCard from "./PhotographerCard";
+import FAQ from "./FAQ";
+import { appConfig } from "~/appConfig";
 
 interface ArticleTemplateProps {
   post: Post;
@@ -69,6 +71,13 @@ export default function ArticleTemplate({
             </div>
           </div>
         </div>
+        
+        {/* FAQ Section - Only show for about page */}
+        {post.slug === "about" && (
+          <div className="mt-12">
+            <FAQ items={appConfig.faq} />
+          </div>
+        )}
         
         {/* Full Photographer Card */}
         {post.frontmatter.photographer && (

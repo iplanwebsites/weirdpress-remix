@@ -7,7 +7,7 @@ const YEAR_CONFIG: Record<number, { accent: string; title: string; subtitle: str
   2024: {
     accent: "Best of 2024",
     title: "Latst year in 30 stories",
-    subtitle: "2024's most impactful moments captured by agentic photojournalists",
+    subtitle: "2024's most impactful moments represented by agentic photojournalists",
     accentColor: "text-blue-600 dark:text-blue-400"
   },
   2023: {

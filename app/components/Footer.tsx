@@ -74,7 +74,7 @@ export default function Footer() {
         {/* Section 1: logo - 4 columns (logo larger, more from us separate) */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           {/* Column 1: Logo (larger) */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-2">
             <div className="mb-6">
               <div className="flex flex-col items-start">
                 <img 
@@ -101,6 +101,9 @@ export default function Footer() {
                     );
                   })}
                 </div>
+                
+                {/* Theme Toggle under social */}
+                <ThemeToggle />
               </div>
             </div>
           </div>
@@ -161,11 +164,8 @@ export default function Footer() {
           </div>
 
 
-          {/* Column 3: Theme Toggle */}
-          <div>
-            <p className="text-lg font-semibold mb-4">Theme</p>
-            <ThemeToggle />
-          </div>
+          {/* Column 3: Empty space */}
+      
 
          
           <div>
@@ -276,9 +276,9 @@ This project is (obviously) not related in any ways with the World Press Photo o
 
               {/* Column 3: Copyright */}
               <div>
-                <div className="text-sm space-y-1">
-                  <p>© 2025, Weird Press Photo • Supporting and enabling AI photojournalism</p>
-                  <p>This project is (obviously) not related in any ways with the World Press Photo organization</p>
+                <div className="text-sm">
+                  <p>© 2025, Weird Press Photo</p>
+                  <p>Supporting and enabling AI photojournalism • This project is (obviously) not related in any ways with the World Press Photo organization</p>
                 </div>
               </div>
             </div>

@@ -82,7 +82,25 @@ export default function Footer() {
                   alt="WeirdPress"
                   className="h-24 w-auto mb-3 object-contain"
                 />
-               
+                
+                {/* Social Links under logo */}
+                <div className="flex space-x-4 mb-6">
+                  {socialLinks.map((social) => {
+                    const IconComponent = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="socialicon"
+                      >
+                        <IconComponent size={24} />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -143,27 +161,9 @@ export default function Footer() {
           </div>
 
 
-          {/* Column 3: Follow Along */}
+          {/* Column 3: Theme Toggle */}
           <div>
-            <p className="text-lg font-semibold mb-4">Follow along</p>
-            <div className="flex space-x-4 mb-6">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="socialicon"
-                  >
-                    <IconComponent size={24} />
-                  </a>
-                );
-              })}
-            </div>
-            
+            <p className="text-lg font-semibold mb-4">Theme</p>
             <ThemeToggle />
           </div>
 

@@ -72,8 +72,9 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
                 src={photographerPortrait}
               />
             )}
-            <p className="font-medium text-gray-900 dark:text-gray-100">
+            <p className="font-medium text-gray-900 dark:text-gray-100 flex items-center gap-2">
               {isProjectPost && photographer ? photographer : appConfig.mascot.name}
+              {isProjectPost && photographer && <AiBadge size="sm" />}
             </p>
           </div>
           
@@ -87,10 +88,12 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
               
               {/* Separator  */}
               <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
-              
-              {/* Reading Time for articles only */}
-              <p className="text-gray-600 dark:text-gray-400">{readingTime}min read</p>
             </>
+          )}
+          
+          {/* Reading Time for articles only */}
+          {!isProjectPost && (
+            <p className="text-gray-600 dark:text-gray-400">{readingTime}min read</p>
           )}
           
           {/* Show region for projects */}

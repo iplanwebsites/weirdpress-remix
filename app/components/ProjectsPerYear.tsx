@@ -70,13 +70,13 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
     <div className={`space-y-16 ${className}`}>
       {projectsByYear.map(({ year, posts: yearPosts }) => (
         <section key={year} className="scroll-mt-20" id={`year-${year}`}>
-          <div className="sticky top-20 bg-white dark:bg-black z-10 py-6 mb-12 text-center border-b border-gray-100 dark:border-gray-800">
+          <div className="sticky top-12 bg-white dark:bg-black z-10 py-3 md:py-6 mb-8 md:mb-12 text-center border-b border-gray-100 dark:border-gray-800">
             {YEAR_CONFIG[year] ? (
               <>
                 <p className={`text-sm font-semibold uppercase tracking-wider mb-2 ${YEAR_CONFIG[year].accentColor}`}>
                   {YEAR_CONFIG[year].accent}
                 </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
                   <Link
                     to={`/${year}`}
                     className="text-gray-900 dark:text-white hover:underline"
@@ -84,7 +84,7 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
                     {YEAR_CONFIG[year].title}
                   </Link>
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                   {YEAR_CONFIG[year].subtitle}
                 </p>
               </>
@@ -93,7 +93,7 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
                 <p className="text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase tracking-wider mb-2">
                   {year} COLLECTION
                 </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
                   <Link
                     to={`/${year}`}
                     className="text-gray-900 dark:text-white hover:underline"
@@ -101,7 +101,7 @@ export default function ProjectsPerYear({ posts, className = "" }: ProjectsPerYe
                     {year}
                   </Link>
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-sm md:text-lg text-gray-600 dark:text-gray-400">
                   {yearPosts.length} {yearPosts.length === 1 ? 'project' : 'projects'}
                 </p>
               </>

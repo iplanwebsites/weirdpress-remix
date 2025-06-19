@@ -80,7 +80,8 @@ export default function Footer() {
                 <img 
                   src="/img/wpp4.svg"
                   alt="WeirdPress"
-                  className="  w-auto mb-3 object-contain mt-0 mb-6"
+                  className="w-auto mb-3 object-contain mt-0 mb-6"
+                  style={{maxWidth: '250px'}}
                 />
                 
                 {/* Social Links under logo */}

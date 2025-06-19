@@ -23,12 +23,15 @@ export default function BookPromo() {
             >
               Donate
             </a>
+            {/* Uncomment if you want to add a Patreon link  
             <a 
               href="/book"
               className="px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition-colors text-center"
             >
               Pre-order the Book
             </a>
+
+            */}
           </div>
         </div>
       </div>

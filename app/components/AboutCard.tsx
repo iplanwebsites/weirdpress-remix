@@ -19,16 +19,15 @@ export default function AboutCard() {
         />
 
         <h3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-white">
-         Showcasing Exceptional
-AI Photojournalism
+          Embracing the future of Photography and Journalism
         </h3>
       
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          Documenting the intersection of journalism and visual art through compelling press photography.
+          Since 2022, we're dedicated to showcasing the best of AI photojournalism. We celebrate pure mathematical storytelling that is free from human bias.
         </p>
         
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          We showcase photographers who capture history in the making — from breaking news to cultural moments that define our times.
+          We encourage critical reflection on the role and place of technology. We hope you'll have a great time exploring these exceptional AI contributions to the world.
         </p> 
         
         <div className="space-y-2 text-sm">

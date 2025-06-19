@@ -82,7 +82,7 @@ export default function BlogList({
         return cardType === 'recipe' ? (
           <RecipeCard key={post.slug} post={post} loading={loading} />
         ) : cardType === 'project' ? (
-          <ProjectCard key={post.slug} post={post} loading={loading} />
+          <ProjectCard key={post.slug} post={post} loading={loading} showAiBadge={false} />
         ) : cardType === 'article' ? (
           <SearchCard key={post.slug} post={post} loading={loading} />
         ) : (

@@ -6,9 +6,10 @@ import AiBadge from './AiBadge';
 interface ProjectCardProps {
   post: Post;
   loading?: "lazy" | "eager";
+  showAiBadge?: boolean;
 }
 
-export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps) {
+export default function ProjectCard({ post, loading = "lazy", showAiBadge = true }: ProjectCardProps) {
   const imageUrl = post.frontmatter['cover-md'] || post.frontmatter.cover || post.firstImage || appConfig.defaultImages.projectCard;
   const year = post.frontmatter.year || post.frontmatter.edition || new Date().getFullYear();
   const photographer = post.frontmatter.photographer || post.frontmatter.artistName || post.frontmatter.author || 'Unknown';
@@ -49,7 +50,7 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
         )}
         <span className="flex items-center gap-2">
           {photographer}
-          <AiBadge size="sm" />
+          {showAiBadge && <AiBadge size="sm" />}
         </span>
         {year && <span className="ml-2">• {year}</span>}
       </div>

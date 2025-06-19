@@ -216,6 +216,10 @@ export const appConfig = {
       answer: "No, this project is completely independent and unaffiliated with the World Press Photo organization. This is an experimental exploration of AI-generated visual journalism."
     },
     {
+      question: "How does it work?",
+      answer: "Technically, our approach varies by edition. We continuously refine our algorithms and workflows, learning from each iteration to maximize strengths and address previous limitations."
+    },
+    {
       question: "How can I submit or contribute?",
       answer: "This is currently a curated experimental project. For inquiries about the project or potential collaborations, please contact us through our social media channels or email."
     }

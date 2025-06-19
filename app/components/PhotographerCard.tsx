@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
+import AiBadge from './AiBadge';
 
 interface PhotographerCardProps {
   post: Post;
@@ -32,8 +33,9 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
             />
           </div>
           
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg mb-3">
+          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg mb-3 flex items-center justify-center gap-2">
             {photographer}
+            <AiBadge />
           </h3>
           
           {photographerBio && (
@@ -76,8 +78,9 @@ export default function PhotographerCard({ post, mode = 'sidebar' }: Photographe
         />
         
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-xl mb-2">
+          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-xl mb-2 flex items-center gap-2">
             {photographer}
+            <AiBadge />
           </h3>
           
           {origin && (

@@ -3,6 +3,7 @@ import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
 import { isProject } from '~/lib/postUtils.js';
 import ShareBar from './ShareBar';
+import AiBadge from './AiBadge';
 
 interface BlogHeaderProps {
   post: Post;
@@ -86,12 +87,10 @@ export default function BlogHeader({ post, currentUrl }: BlogHeaderProps): JSX.E
               
               {/* Separator  */}
               <div className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
+              
+              {/* Reading Time for articles only */}
+              <p className="text-gray-600 dark:text-gray-400">{readingTime}min read</p>
             </>
-          )}
-          
-          {/* Reading Time for articles only */}
-          {!isProjectPost && (
-            <p className="text-gray-600 dark:text-gray-400">{readingTime}min read</p>
           )}
           
           {/* Show region for projects */}

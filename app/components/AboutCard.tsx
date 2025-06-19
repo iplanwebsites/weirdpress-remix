@@ -6,14 +6,14 @@ export default function AboutCard() {
         <div className="flex justify-center mb-6">
           <img 
             src="https://static.repo.md/projects/6851d519ac5bcd832fb4c887/_shared/medias/3bb993e51798a8d5eaadd94763710ea78c0357e356c70ea1f066045128e26f00-lg.webp"
-            alt="WeirdPress Photo portrait"
+            alt="Weird Press Photo portrait"
             className="w-64 h-64 rounded-full object-cover border-4 border-gray-200 dark:border-gray-600"
           />
         </div>
         
         <img 
           src="/img/wpp4.svg"
-          alt="WeirdPress Photo"
+          alt="Weird Press Photo"
           className="w-full"
           style={{marginTop: '-100px'}}
         />
@@ -23,11 +23,11 @@ export default function AboutCard() {
         </h3>
       
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          Since 2022, we're dedicated to showcasing the best of AI photojournalism. We celebrate pure mathematical storytelling that is free from human bias.
+          Since 2022, we&apos;re dedicated to showcasing the best of AI photojournalism. We celebrate pure mathematical storytelling that is free from human bias.
         </p>
         
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          We encourage critical reflection on the role and place of technology. We hope you'll have a great time exploring these exceptional AI contributions to the world.
+          We encourage critical reflection on the role and place of technology. We hope you&apos;ll have a great time exploring these exceptional AI contributions to the world.
         </p> 
         
         <div className="space-y-2 text-sm">

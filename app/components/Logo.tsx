@@ -7,7 +7,7 @@ export default function Logo({ className = "" }: LogoProps) {
     <div className={`flex items-center ${className}`}>
       <img 
         src="/img/wpp4.svg" 
-        alt="WeirdPress Photo"
+        alt="Weird Press Photo"
         className="h-10  w-auto"
       />
     </div>

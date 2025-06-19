@@ -7,7 +7,7 @@
 const env = typeof process !== "undefined" ? process.env : {};
 const NODE_ENV = env.NODE_ENV || "development";
 
-const siteName = "WeirdPress Photo";
+const siteName = "Weird Press Photo";
 const domain = "weirdpress.photo";
 /**/
 const logotypePink =
@@ -88,7 +88,7 @@ export const appConfig = {
     altText: siteName + " logo",
     description: "Documenting the intersection of journalism and visual art.",
     longDescription:
-      "WeirdPress Photo showcases compelling press photography that captures pivotal moments in journalism and culture. We celebrate the photographers who shape how we see and understand our world through their lenses.",
+      "Weird Press Photo showcases compelling press photography that captures pivotal moments in journalism and culture. We celebrate the photographers who shape how we see and understand our world through their lenses.",
   },
 
   // Search Configuration

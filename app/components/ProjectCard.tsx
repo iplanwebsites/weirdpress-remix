@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import type { Post } from "~/types/blog";
 import { appConfig } from '../appConfig.js';
+import AiBadge from './AiBadge';
 
 interface ProjectCardProps {
   post: Post;
@@ -46,7 +47,10 @@ export default function ProjectCard({ post, loading = "lazy" }: ProjectCardProps
             loading="lazy"
           />
         )}
-        <span>{photographer}</span>
+        <span className="flex items-center gap-2">
+          {photographer}
+          <AiBadge size="sm" />
+        </span>
         {year && <span className="ml-2">• {year}</span>}
       </div>
     </div>

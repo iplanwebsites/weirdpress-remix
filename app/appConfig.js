@@ -142,7 +142,7 @@ export const appConfig = {
     newsletterEnabled: true,
     darkModeEnabled: true,
     socialShareEnabled: true,
-    showEndgame: true,
+    showEndgame: false,
   },
 
   // Company Information

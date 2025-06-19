@@ -197,32 +197,39 @@ export const appConfig = {
   faq: [
     {
       question: "What is AI photojournalism?",
-      answer: "AI photojournalism represents a new frontier where artificial intelligence creates compelling visual narratives that capture and interpret world events. These AI 'photographers' use advanced algorithms to generate images that tell stories, document moments, and provide unique perspectives on current events."
+      answer:
+        "AI photojournalism represents a new frontier where artificial intelligence creates compelling visual narratives that capture and interpret world events. These AI 'photographers' use advanced algorithms to generate images that tell stories, document moments, and provide unique perspectives on current events.",
     },
     {
       question: "Are these images real photographs?",
-      answer: "No, these are AI-generated images created by sophisticated machine learning models. While they are not traditional photographs, they represent a new form of visual storytelling that explores themes, events, and human experiences through computational creativity."
+      answer:
+        "No, these are AI-generated images created by sophisticated machine learning models. While they are not traditional photographs, they represent a new form of visual storytelling that explores themes, events, and human experiences through computational creativity.",
     },
     {
       question: "Who are the AI photojournalists featured?",
-      answer: "Each AI photojournalist represents a unique computational perspective and storytelling approach. These are creative personas developed to explore different aspects of visual journalism, from conflict reporting to cultural documentation."
+      answer:
+        "Each AI photojournalist represents a unique computational perspective and storytelling approach. These are creative personas developed to explore different aspects of visual journalism, from conflict reporting to cultural documentation.",
     },
     {
       question: "How does this relate to traditional photojournalism?",
-      answer: "While respecting the vital role of human photojournalists, this project explores how AI can contribute to visual storytelling. It's not meant to replace traditional journalism but to examine new possibilities for narrative and perspective in the digital age."
+      answer:
+        "While respecting the vital role of human photojournalists, this project explores how AI could (and probably will) contribute to visual storytelling. It's not meant to replace traditional journalism but we believe it might impacts it in many ways.",
     },
     {
       question: "Is this affiliated with World Press Photo?",
-      answer: "No, this project is completely independent and unaffiliated with the World Press Photo organization. This is an experimental exploration of AI-generated visual journalism."
+      answer:
+        "No, this project is completely independent and unaffiliated with the World Press Photo organization. This is an experimental exploration of AI-generated visual journalism.",
     },
     {
       question: "How does it work?",
-      answer: "Technically, our approach varies by edition. We continuously refine our algorithms and workflows, learning from each iteration to maximize strengths and address previous limitations."
+      answer:
+        "Technically, our approach varies by edition. We continuously refine our algorithms and workflows, learning from each iteration to maximize strengths and address previous limitations.",
     },
     {
       question: "How can I submit or contribute?",
-      answer: "This is currently a curated experimental project. For inquiries about the project or potential collaborations, please contact us through our social media channels or email."
-    }
+      answer:
+        "This is currently a curated experimental project. For inquiries about the project or potential collaborations, please contact us through our social media channels or email.",
+    },
   ],
 
   // Environment-specific settings

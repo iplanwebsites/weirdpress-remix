@@ -162,13 +162,6 @@ export const appConfig = {
   // External Services
   services: {
     chatUrl: "https://chat.repo.md/projects/6848af1cacdf98346841d302",
-    analytics: {
-      // googleAnalyticsId: env.GOOGLE_ANALYTICS_ID,
-    },
-    newsletter: {
-      // provider: "mailchimp", // or "convertkit", "buttondown", etc.
-      // apiKey: env.NEWSLETTER_API_KEY,
-    },
   },
 
   // Content Categories

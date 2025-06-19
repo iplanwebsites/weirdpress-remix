@@ -167,8 +167,15 @@ export default function Footer() {
             <ThemeToggle />
           </div>
 
-          {/* Column 4: Newsletter + Policies */}
+         
           <div>
+ <p className="text-sm mb-4"> 
+            © 2025, Weird Press Photo • Supporting and enabling AI photojournalism</p>
+ <p className="text-sm mb-4">
+This project is (obviously) not related in any ways with the World Press Photo organization
+ </p>
+
+ {/* Column 4: Newsletter + Policies
             <p className="text-lg font-semibold mb-4">Newsletter</p>
             <p className="text-sm mb-4">
               Stay updated with the latest press photography exhibitions, artist features, and editorial insights.
@@ -202,6 +209,7 @@ export default function Footer() {
               </a>
               .
             </p>
+             */}
           </div>
         </div>
 

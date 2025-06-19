@@ -76,15 +76,15 @@ export default function Footer() {
           {/* Column 1: Logo (larger) */}
           <div className="md:col-span-1">
             <div className="mb-6">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-start">
                 <img 
                   src="/img/wpp4.svg"
                   alt="WeirdPress"
-                  className="h-24 w-auto mb-3 object-contain"
+                  className="  w-auto mb-3 object-contain mt-0 mb-6"
                 />
                 
                 {/* Social Links under logo */}
-                <div className="flex space-x-4 mb-6">
+                <div className="flex space-x-4 mb-6 justify-start">
                   {socialLinks.map((social) => {
                     const IconComponent = social.icon;
                     return (

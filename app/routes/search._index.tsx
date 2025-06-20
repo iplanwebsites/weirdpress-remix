@@ -1,4 +1,4 @@
-import type { MetaFunction, LoaderFunction, HeadersFunction } from "@remix-run/cloudflare";
+import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData, useSearchParams, Link } from "@remix-run/react";
 import SearchBar from "~/components/SearchBar";
@@ -7,15 +7,10 @@ import type { Post } from "~/types/blog";
 import { isProject } from "~/lib/postUtils.js";
 import repo from "../../repo";
 import { appConfig } from "~/appConfig";
-import { CachePolicies, createCacheHeaders } from "~/lib/cache";
 
 interface SearchResult {
   post: Record<string, unknown>;
 }
-
-export const headers: HeadersFunction = () => {
-  return createCacheHeaders(CachePolicies.search());
-};
 
 export const meta: MetaFunction = () => {
   return [

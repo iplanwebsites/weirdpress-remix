@@ -1,4 +1,4 @@
-import type { MetaFunction, LoaderFunction, HeadersFunction } from "@remix-run/cloudflare";
+import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import repo from "../../repo";
@@ -10,7 +10,6 @@ import FAQ from "~/components/FAQ";
 import type { Post } from "~/types/blog";
 import { getProjects, getNonProjects } from "~/lib/postUtils";
 import { appConfig } from "~/appConfig";
-import { CachePolicies, createCacheHeaders } from "~/lib/cache";
 
 // Hero background image
 const HERO_IMAGE_URL = "https://2024.weirdpressphoto.org/_repo/medias/14041b0a6ef6eaf2addc7dfcc5617b49219e0d4c496404dedb12e37d323acea1-xl.webp";
@@ -46,10 +45,6 @@ function getFeaturedPosts(posts: Post[]): Post[] {
   const combined = [...featuredPosts, ...shuffled2024];
   return combined.slice(0, 3);
 }
-
-export const headers: HeadersFunction = () => {
-  return createCacheHeaders(CachePolicies.static());
-};
 
 export const meta: MetaFunction = () => {
   return [

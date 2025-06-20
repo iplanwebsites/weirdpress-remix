@@ -1,13 +1,8 @@
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData, useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import repo from "../../repo";
-import type { LoaderFunction, MetaFunction, HeadersFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction, MetaFunction } from "@remix-run/cloudflare";
 import ErrorBoundaryComponent from "~/components/ErrorBoundary";
-import { CachePolicies, createCacheHeaders } from "~/lib/cache";
-
-export const headers: HeadersFunction = () => {
-  return createCacheHeaders(CachePolicies.media());
-};
 
 export const meta: MetaFunction = () => {
   return [

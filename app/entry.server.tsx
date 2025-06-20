@@ -67,6 +67,9 @@ export default async function handleRequest(
 
   responseHeaders.set("Content-Type", "text/html");
   
+  // Global cache policy: fast loading with background refresh
+  responseHeaders.set("Cache-Control", "public, max-age=60, stale-while-revalidate=3600");
+  
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,

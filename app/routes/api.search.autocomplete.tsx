@@ -1,6 +1,11 @@
-import type { LoaderFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction, HeadersFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import repo from "../../repo";
+import { CachePolicies, createCacheHeaders } from "~/lib/cache";
+
+export const headers: HeadersFunction = () => {
+  return createCacheHeaders(CachePolicies.api());
+};
 
 export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);

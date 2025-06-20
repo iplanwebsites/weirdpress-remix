@@ -67,11 +67,6 @@ export default async function handleRequest(
 
   responseHeaders.set("Content-Type", "text/html");
   
-  // Set cache headers for stale-while-revalidate behavior
-  const cacheMaxAge = 60; // 1 minute fresh
-  const staleWhileRevalidate = appConfig.cache.apiCacheDuration; // 15 minutes stale
-  responseHeaders.set("Cache-Control", `public, max-age=${cacheMaxAge}, stale-while-revalidate=${staleWhileRevalidate}`);
-  
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,

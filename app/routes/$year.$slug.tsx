@@ -1,10 +1,11 @@
-import type { LoaderFunction, MetaFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction, MetaFunction, HeadersFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import repo from "../../repo.js";
 import type { Post } from "~/types/blog";
 import { appConfig } from "~/appConfig.js";
 import ArticleTemplate from "~/components/ArticleTemplate";
+import { CachePolicies, createCacheHeaders } from "~/lib/cache";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { year, slug } = params;
@@ -34,6 +35,10 @@ export const loader: LoaderFunction = async ({ params }) => {
     console.error("Error loading post:", error);
     throw new Response("Not Found", { status: 404 });
   }
+};
+
+export const headers: HeadersFunction = () => {
+  return createCacheHeaders(CachePolicies.content());
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {

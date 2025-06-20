@@ -47,6 +47,17 @@ export default function ArticleTemplate({
             <article>
               <BlogHeader post={post} />
               
+              {/* Human author banner */}
+              {post.frontmatter.human === true && (
+                <div className="mb-6 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-800 dark:text-green-200 text-sm font-medium">
+                      ✍️ Written by Human
+                    </span>
+                  </div>
+                </div>
+              )}
+              
               <BlogContent html={post.html} />
               
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">

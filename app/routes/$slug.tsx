@@ -86,6 +86,58 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     ? relativeImage 
     : `${appConfig.siteUrl}${relativeImage}`;
   
+  // Generate JSON-LD structured data
+  const publishedDate = post.frontmatter?.date ? new Date(post.frontmatter.date).toISOString() : new Date().toISOString();
+  const authorName = post.frontmatter.photographer || appConfig.author.name;
+  const authorUrl = post.frontmatter.photographer 
+    ? `${appConfig.siteUrl}/${post.slug}#photographer-full` 
+    : appConfig.siteUrl;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": post.frontmatter.photographer ? "NewsArticle" : "Article",
+    "headline": post.title || post.frontmatter.title,
+    "description": post.frontmatter.description || post.firstParagraphText || post.plain?.substring(0, 160),
+    "image": ogImage,
+    "datePublished": publishedDate,
+    "dateModified": publishedDate,
+    "author": {
+      "@type": "Person",
+      "name": authorName,
+      "url": authorUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": appConfig.siteName,
+      "url": appConfig.siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${appConfig.siteUrl}${appConfig.defaultImages.siteLogo}`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${appConfig.siteUrl}/${post.slug}`
+    },
+    "url": `${appConfig.siteUrl}/${post.slug}`,
+    "keywords": post.frontmatter.tags?.join(', ') || post.frontmatter.category,
+    "articleSection": post.frontmatter.category || "Photography"
+  };
+
+  if (post.frontmatter.photographer) {
+    structuredData["articleBody"] = post.plain;
+  }
+
+  if (post.rating) {
+    structuredData["aggregateRating"] = {
+      "@type": "AggregateRating",
+      "ratingValue": post.rating,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": post.reviewCount || 1
+    };
+  }
+
   return [
     { title: post.title || post.frontmatter.title },
     { name: "description", content: post.plain },
@@ -93,6 +145,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { property: "og:title", content: post.title || post.frontmatter.title },
     { property: "og:description", content: post.plain },
     { property: "og:type", content: "article" },
+    {
+      "script:ld+json": structuredData,
+    },
   ];
 };
 

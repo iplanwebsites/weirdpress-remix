@@ -73,6 +73,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             `,
           }}
         />
+        <script
+          src="https://ry.weirdpressphoto.org/script.js"
+          data-site-id="8974c64409fd"
+          defer
+        />
         <Meta />
         <Links />
         <style dangerouslySetInnerHTML={{
